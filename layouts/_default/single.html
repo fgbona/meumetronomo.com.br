@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{{ partial "head-seo.html" . }}
-</head>
-<body>
-<header class="top"><a class="logo" href="/">{{ .Site.Title }}</a></header>
-<main><article class="text"><h1>{{ .Title }}</h1>{{ .Content }}</article></main>
-<footer>© {{ now.Year }} meumetronomo.com.br · <a href="/privacidade/">Privacidade</a></footer>
-</body>
-</html>
+{{ define "main" }}
+<article class="text">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{- if eq .Type "artigo" }}
+  <p><a href="/">← Abrir o metrônomo online</a></p>
+  {{- end }}
+</article>
+{{ end }}

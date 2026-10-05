@@ -1,83 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{{ partial "head-seo.html" . }}
+{{ define "head" }}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","@id":"{{ .Permalink }}#website","url":"{{ .Permalink }}","name":"{{ site.Title }}","inLanguage":"pt-BR"},
  {"@type":"WebApplication","name":"{{ site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ site.Params.description }}"}
+ {{- with .Params.faq }},
+ {"@type":"FAQPage","mainEntity":[
+ {{- range $i, $f := . }}{{ if $i }},{{ end }}{"@type":"Question","name":{{ $f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ $f.a | markdownify | plainify | jsonify }}}}{{ end }}
+ ]}{{ end }}
 ]}
 </script>
-</head>
-<body>
-<header class="top">
-  <a class="logo" href="/">{{ .Site.Title }}</a>
-  <div class="top-actions">
-    <button id="theme" class="icon" type="button" title="Modo claro / escuro" aria-label="Modo claro / escuro"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
-    <button id="fullscreen" class="icon" type="button" title="Tela cheia" aria-label="Tela cheia"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button>
-  </div>
-</header>
-
-<main>
-  <h1>{{ .Title }}</h1>
-  <p class="lead">{{ .Params.lead }}</p>
-  <section class="metronome" id="metronome">
-    <div class="tempo">
-      <button class="round" id="bpm-dec" type="button" aria-label="Diminuir BPM">−</button>
-      <div class="bpm">
-        <output id="bpm-value" for="bpm">120</output>
-        <span id="bpm-name" class="bpm-name">Allegro</span>
-      </div>
-      <button class="round" id="bpm-inc" type="button" aria-label="Aumentar BPM">+</button>
-    </div>
-    <input id="bpm" type="range" min="1" max="240" value="120" aria-label="BPM">
-
-    <div class="beats" id="beats" aria-hidden="true"></div>
-
-    <div class="controls">
-      <button id="start" class="primary" type="button">Iniciar</button>
-      <button id="tap" type="button">Tap BPM</button>
-    </div>
-
-    <div class="options">
-      <label class="opt">
-        <span>Batidas</span>
-        <span class="stepper">
-          <button id="beats-dec" type="button" aria-label="Menos batidas">−</button>
-          <input id="beats-count" type="number" min="1" max="12" value="4" aria-label="Batidas por compasso">
-          <button id="beats-inc" type="button" aria-label="Mais batidas">+</button>
-        </span>
-      </label>
-      <label class="opt"><input id="accent" type="checkbox" checked> <span>Acentuar primeira batida</span></label>
-      <label class="opt">
-        <input id="timer" type="checkbox"> <span>Temporizador</span>
-        <input id="timer-min" type="number" min="1" max="120" value="5" aria-label="Minutos" disabled> <span>min</span>
-      </label>
-    </div>
-
-    <fieldset class="subdivisions">
-      <legend>Subdivisões</legend>
-      <div id="subdivisions"></div>
-    </fieldset>
-  </section>
-
-  {{ partial "ad.html" (dict "slot" site.Params.adsense.slotTop) }}
-
-  <article class="text">
-    {{ .Content }}
-  </article>
-
-  {{ partial "ad.html" (dict "slot" site.Params.adsense.slotBottom) }}
-</main>
-
-<footer>© {{ now.Year }} meumetronomo.com.br · <a href="/privacidade/">Privacidade</a></footer>
-{{ $js := resources.Get "js/app.js" | minify | fingerprint }}
-<script defer src="{{ $js.RelPermalink }}"></script>
-{{- if or site.Params.adsense.slotTop site.Params.adsense.slotBottom }}
-{{ $ads := resources.FromString "js/ads.js" "document.querySelectorAll('ins.adsbygoogle').forEach(function(){(adsbygoogle=window.adsbygoogle||[]).push({})});" | minify | fingerprint }}
-<script defer src="{{ $ads.RelPermalink }}"></script>
-{{- end }}
-</body>
-</html>
+{{ end }}
+{{ define "header-actions" }}{{ partial "header-actions.html" . }}{{ end }}
+{{ define "main" }}{{ partial "metronome-page.html" . }}{{ end }}
+{{ define "scripts" }}{{ partial "metronome-scripts.html" . }}{{ end }}

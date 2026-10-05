@@ -1,0 +1,39 @@
+  <section class="metronome" id="metronome" data-bpm="{{ .bpm }}">
+    <div class="tempo">
+      <button class="round" id="bpm-dec" type="button" aria-label="Diminuir BPM">−</button>
+      <div class="bpm">
+        <output id="bpm-value" for="bpm">{{ .bpm }}</output>
+        <span id="bpm-name" class="bpm-name"></span>
+      </div>
+      <button class="round" id="bpm-inc" type="button" aria-label="Aumentar BPM">+</button>
+    </div>
+    <input id="bpm" type="range" min="1" max="240" value="{{ .bpm }}" aria-label="BPM">
+
+    <div class="beats" id="beats" aria-hidden="true"></div>
+
+    <div class="controls">
+      <button id="start" class="primary" type="button">Iniciar</button>
+      <button id="tap" type="button">Tap BPM</button>
+    </div>
+
+    <div class="options">
+      <label class="opt">
+        <span>Batidas</span>
+        <span class="stepper">
+          <button id="beats-dec" type="button" aria-label="Menos batidas">−</button>
+          <input id="beats-count" type="number" min="1" max="12" value="4" aria-label="Batidas por compasso">
+          <button id="beats-inc" type="button" aria-label="Mais batidas">+</button>
+        </span>
+      </label>
+      <label class="opt"><input id="accent" type="checkbox" checked> <span>Acentuar primeira batida</span></label>
+      <label class="opt">
+        <input id="timer" type="checkbox"> <span>Temporizador</span>
+        <input id="timer-min" type="number" min="1" max="120" value="5" aria-label="Minutos" disabled> <span>min</span>
+      </label>
+    </div>
+
+    <fieldset class="subdivisions">
+      <legend>Subdivisões</legend>
+      <div id="subdivisions"></div>
+    </fieldset>
+  </section>

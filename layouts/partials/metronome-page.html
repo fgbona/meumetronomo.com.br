@@ -1,0 +1,33 @@
+{{- $bpm := .Params.bpm | default 120 -}}
+<h1>{{ .Title }}</h1>
+<p class="lead">{{ .Params.lead }}</p>
+{{ partial "metronome.html" (dict "bpm" $bpm) }}
+
+{{ partial "ad.html" (dict "slot" site.Params.adsense.slotTop) }}
+
+<article class="text">
+  {{ .Content }}
+  {{- with .Params.faq }}
+  <h2>Perguntas frequentes</h2>
+  {{- range . }}
+  <h3>{{ .q }}</h3>
+  <p>{{ .a | markdownify }}</p>
+  {{- end }}
+  {{- end }}
+
+  <h2>Metrônomo por andamento</h2>
+  <p class="links">
+  {{- range sort (where site.RegularPages "Type" "bpm") "Params.bpm" }}
+    {{- if eq .Params.bpm $.Params.bpm }}<strong>{{ .Params.bpm }} BPM</strong>{{ else }}<a href="{{ .RelPermalink }}">{{ .Params.bpm }} BPM</a>{{ end }}
+  {{- end }}
+  </p>
+
+  <h2>Artigos</h2>
+  <ul>
+  {{- range where site.RegularPages "Type" "artigo" }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Description }}</li>
+  {{- end }}
+  </ul>
+</article>
+
+{{ partial "ad.html" (dict "slot" site.Params.adsense.slotBottom) }}

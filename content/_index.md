@@ -1,6 +1,23 @@
 ---
 title: Metrônomo Online
 lead: Defina o BPM, escolha o número de batidas por compasso e clique em Iniciar. Opcionalmente, use o Tap BPM, subdivisões e o temporizador.
+sitemap:
+  priority: 1.0
+faq:
+  - q: "O metrônomo online é grátis?"
+    a: "Sim. Não há cadastro, limite de uso nem versão paga. O site se mantém com anúncios discretos."
+  - q: "Funciona no celular?"
+    a: "Funciona em qualquer navegador moderno, no Android, iPhone, tablet ou computador. Não é preciso instalar aplicativo. No celular, deixe a tela ligada enquanto estuda, porque alguns sistemas pausam o áudio quando a tela apaga."
+  - q: "Como usar o Tap BPM?"
+    a: "Toque no botão 'Tap BPM' no ritmo da música, pelo menos quatro vezes. O metrônomo calcula a média dos intervalos e ajusta o andamento. É útil para descobrir o BPM de uma gravação."
+  - q: "O que são as subdivisões?"
+    a: "São cliques extras dentro de cada batida, como colcheias (duas por tempo), tercinas (três) ou semicolcheias (quatro). Ajudam a manter a precisão em passagens rápidas e a sentir o swing de ritmos ternários."
+  - q: "Qual BPM devo usar para estudar?"
+    a: "Comece devagar o suficiente para tocar a passagem sem erros, normalmente entre 50% e 70% do andamento final, e suba de 4 a 5 BPM por vez. Veja o artigo [Como estudar com metrônomo](/como-estudar-com-metronomo/)."
+  - q: "Quais atalhos de teclado existem?"
+    a: "Espaço inicia e para. As setas para cima e para baixo (ou esquerda e direita) mudam o BPM de 1 em 1."
+  - q: "Por que o clique ficou irregular?"
+    a: "O metrônomo usa o relógio de áudio do navegador, que é preciso. Irregularidade costuma vir de outra aba pesada, economia de bateria no celular ou fones Bluetooth com latência variável. Feche outras abas ou use fones com fio."
 ---
 
 ## Como usar o metrônomo online?

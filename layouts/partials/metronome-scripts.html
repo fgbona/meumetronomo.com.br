@@ -1,0 +1,6 @@
+{{ $js := resources.Get "js/app.js" | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}"></script>
+{{- if or site.Params.adsense.slotTop site.Params.adsense.slotBottom }}
+{{ $ads := resources.FromString "js/ads.js" "document.querySelectorAll('ins.adsbygoogle').forEach(function(){(adsbygoogle=window.adsbygoogle||[]).push({})});" | minify | fingerprint }}
+<script defer src="{{ $ads.RelPermalink }}"></script>
+{{- end }}

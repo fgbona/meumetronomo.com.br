@@ -159,6 +159,6 @@
   };
   $('fullscreen').onclick = () => (document.fullscreenElement ? document.exitFullscreen() : $('metronome').requestFullscreen());
 
-  setBpm(120);
+  setBpm(+$('metronome').dataset.bpm || 120);
   setBeats(4);
 })();

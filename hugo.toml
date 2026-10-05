@@ -1,5 +1,5 @@
 baseURL = "https://meumetronomo.com.br/"
-languageCode = "pt-BR"
+locale = "pt-BR"
 title = "Meu Metrônomo"
 disableKinds = ["taxonomy", "term", "section", "rss"]
 enableRobotsTXT = true
