@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ .Site.Title }} - Metrônomo Online Grátis</title>
 <meta name="description" content="{{ .Site.Params.description }}">
+{{- with site.Params.google_site_verification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 <script type="application/ld+json">

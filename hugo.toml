@@ -2,14 +2,29 @@ baseURL = "https://meumetronomo.com.br/"
 languageCode = "pt-BR"
 title = "Meu Metrônomo"
 disableKinds = ["taxonomy", "term", "section", "rss"]
+enableRobotsTXT = true
+enableGitInfo = true              # lastmod real no sitemap a partir do git
+disableHugoGeneratorInject = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.8
 
 [params]
   # Google Analytics (GA4) — ex.: "G-XXXXXXXXXX". Vazio = desligado.
   ga = ""
+  # Verificação de propriedade (Google Search Console): código do método "tag HTML". Vazio não renderiza.
+  google_site_verification = ""
   description = "Metrônomo online simples com batidas sonoras e visuais. Defina o BPM, use o Tap BPM, ajuste o número de batidas, subdivisões e o temporizador."
 
 [minify]
   minifyOutput = true
+# Mantém aspas nos atributos: verificadores (Search Console/AdSense) procuram name="..." literal.
+[minify.tdewolff.html]
+  keepQuotes = true
 
 # Google AdSense — preencha client ("ca-pub-...") e os slots criados no painel. Vazio = nenhum anúncio renderizado.
 [params.adsense]
