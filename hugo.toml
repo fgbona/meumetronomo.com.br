@@ -28,6 +28,6 @@ disableHugoGeneratorInject = true
 
 # Google AdSense — preencha client ("ca-pub-...") e os slots criados no painel. Vazio = nenhum anúncio renderizado.
 [params.adsense]
-  client = ""
+  client = "ca-pub-0948876604573311"
   slotTop = ""
   slotBottom = ""

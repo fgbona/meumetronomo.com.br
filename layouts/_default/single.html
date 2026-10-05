@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Title }} - {{ .Site.Title }}</title>
+<meta name="description" content="{{ .Description | default .Summary | plainify | truncate 160 }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ partial "head-google.html" . }}
+</head>
+<body>
+<header class="top"><a class="logo" href="/">{{ .Site.Title }}</a></header>
+<main><article class="text"><h1>{{ .Title }}</h1>{{ .Content }}</article></main>
+<footer>© {{ now.Year }} meumetronomo.com.br · <a href="/privacidade/">Privacidade</a></footer>
+</body>
+</html>
