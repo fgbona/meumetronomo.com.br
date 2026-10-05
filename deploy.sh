@@ -14,6 +14,7 @@ ANTES=$(snapshot)
 
 "$HUGO" --minify --gc
 chown -R appsec:appsec public
+chmod 755 . public   # nginx roda como nobody e precisa atravessar a pasta
 echo "publicado em $(pwd)/public ($(find public -type f | wc -l) arquivos)"
 
 # --- IndexNow ---------------------------------------------------------------
