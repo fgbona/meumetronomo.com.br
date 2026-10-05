@@ -21,7 +21,7 @@ input[type=number] { font: inherit; color: inherit; background: var(--card); bor
 
 .top { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; max-width: 960px; margin: 0 auto; }
 .logo { font-weight: 700; text-decoration: none; }
-.icon { padding: .3em .6em; font-size: 1.1em; }
+.icon { display: inline-flex; padding: .45em .6em; }
 
 main { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
 h1 { text-align: center; margin: 8px 0 4px; }
@@ -53,11 +53,10 @@ h1 { text-align: center; margin: 8px 0 4px; }
 .subdivisions { border: 0; padding: 0; margin: 24px 0 0; text-align: center; }
 .subdivisions legend { color: var(--muted); font-size: .9em; width: 100%; }
 #subdivisions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px; }
-#subdivisions label { display: inline-flex; gap: 3px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+#subdivisions label { display: inline-flex; align-items: center; padding: 6px 8px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; color: var(--fg); }
 #subdivisions input { position: absolute; opacity: 0; width: 0; height: 0; }
-#subdivisions label:has(:checked) { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-#subdivisions i { display: block; width: 8px; height: 14px; border-radius: 2px; background: var(--beat); }
-#subdivisions i.hit { background: var(--fg); }
+#subdivisions label:has(:checked) { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+#subdivisions svg { display: block; }
 
 .text { margin-top: 40px; }
 .text table { border-collapse: collapse; }
