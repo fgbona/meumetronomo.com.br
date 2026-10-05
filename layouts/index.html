@@ -10,6 +10,13 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"{{ .Site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","inLanguage":"{{ .Site.LanguageCode }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Site.Params.description }}"}
 </script>
+{{- with site.Params.adsense.client }}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}" crossorigin="anonymous"></script>
+{{- end }}
+{{- with site.Params.ga }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ . }}');</script>
+{{- end }}
 </head>
 <body>
 <header class="top">
@@ -63,9 +70,13 @@
     </fieldset>
   </section>
 
+  {{ partial "ad.html" (dict "slot" site.Params.adsense.slotTop) }}
+
   <article class="text">
     {{ .Content }}
   </article>
+
+  {{ partial "ad.html" (dict "slot" site.Params.adsense.slotBottom) }}
 </main>
 
 <footer>© {{ now.Year }} meumetronomo.com.br</footer>

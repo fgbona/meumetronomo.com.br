@@ -68,3 +68,5 @@ footer { text-align: center; color: var(--muted); padding: 16px; font-size: .9em
   #bpm-value { font-size: 3.5em; }
   .round { width: 48px; height: 48px; }
 }
+
+.ad { margin: 24px auto; text-align: center; min-height: 90px; }

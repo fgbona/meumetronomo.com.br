@@ -4,7 +4,15 @@ title = "Meu Metrônomo"
 disableKinds = ["taxonomy", "term", "section", "rss"]
 
 [params]
+  # Google Analytics (GA4) — ex.: "G-XXXXXXXXXX". Vazio = desligado.
+  ga = ""
   description = "Metrônomo online simples com batidas sonoras e visuais. Defina o BPM, use o Tap BPM, ajuste o número de batidas, subdivisões e o temporizador."
 
 [minify]
   minifyOutput = true
+
+# Google AdSense — preencha client ("ca-pub-...") e os slots criados no painel. Vazio = nenhum anúncio renderizado.
+[params.adsense]
+  client = ""
+  slotTop = ""
+  slotBottom = ""
