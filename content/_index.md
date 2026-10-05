@@ -18,6 +18,8 @@ faq:
     a: "Espaço inicia e para. As setas para cima e para baixo (ou esquerda e direita) mudam o BPM de 1 em 1."
   - q: "Por que o clique ficou irregular?"
     a: "O metrônomo usa o relógio de áudio do navegador, que é preciso. Irregularidade costuma vir de outra aba pesada, economia de bateria no celular ou fones Bluetooth com latência variável. Feche outras abas ou use fones com fio."
+  - q: "Posso abrir o metrônomo já em um BPM específico?"
+    a: "Sim. Acrescente ?bpm= ao endereço, por exemplo meumetronomo.com.br/?bpm=90. O guia de andamentos tem um link pronto para cada velocidade."
 ---
 
 ## Como usar o metrônomo online?
@@ -26,23 +28,39 @@ faq:
 2. **Escolha o número de batidas.** A maior parte das músicas tem 4, 3 ou 2 batidas por compasso (4/4, 3/4, 2/4). Escolha 1 se não souber.
 3. **Clique em "Iniciar".** O metrônomo começa imediatamente. Para parar após um tempo, ative o temporizador. A tecla Espaço também inicia e para.
 
-## Andamentos (marcações de tempo)
+## Recursos
 
-| Nome | BPM |
-|---|---|
-| Larghissimo | até 24 |
-| Grave | 25 – 45 |
-| Lento | 45 – 50 |
-| Largo | 50 – 60 |
-| Adagio | 60 – 70 |
-| Adagietto | 70 – 85 |
-| Andante | 85 – 97 |
-| Moderato | 97 – 109 |
-| Allegretto | 109 – 132 |
-| Allegro | 132 – 140 |
-| Vivace | 140 – 177 |
-| Presto | 177 – 240 |
+- **BPM de 1 a 240.** Cobre do Larghissimo ao Prestissimo. O nome do andamento aparece abaixo do número, para você relacionar o BPM com a marcação da partitura.
+- **Batidas por compasso com acento.** De 1 a 12 batidas, com a primeira acentuada. Desligue o acento para ouvir um pulso uniforme, útil em exercícios de tempo interno.
+- **Subdivisões.** Colcheias, tercinas, semicolcheias e padrões com pausas, mostrados em figuras musicais. Os cliques de subdivisão têm som mais suave que o da batida principal.
+- **Tap BPM.** Toque no ritmo e o metrônomo calcula o andamento a partir da média dos últimos toques. Serve para descobrir o BPM de uma música ou para marcar o andamento de uma banda antes de contar a entrada.
+- **Temporizador.** Define quantos minutos o metrônomo toca antes de parar sozinho. Bom para sessões de estudo com tempo marcado e para estudar sem olhar para a tela.
+- **Indicador visual.** As batidas acendem na tela em sincronia com o som. Ajuda quem toca instrumentos altos, como bateria, e quem estuda com o volume baixo.
+- **Tema claro e escuro.** A escolha fica salva no navegador.
+- **Atalhos de teclado.** Espaço inicia e para; as setas ajustam o BPM.
 
-## O que é um metrônomo?
+## Para que serve um metrônomo?
 
-O metrônomo é uma ferramenta que marca um pulso constante em batidas por minuto (BPM). Músicos o usam para desenvolver precisão rítmica, estudar passagens difíceis em andamentos lentos e aumentar a velocidade gradualmente. Este metrônomo online funciona direto no navegador, sem instalar nada, no computador ou no celular.
+O metrônomo marca um pulso constante, medido em batidas por minuto (BPM). A função dele não é tocar no seu lugar, e sim mostrar, com honestidade, quando você acelera ou atrasa. Com o tempo, o ouvido passa a perceber esses desvios sem a ajuda do clique: é o que chamamos de tempo interno.
+
+Na prática, o metrônomo é usado para três coisas:
+
+1. **Estudar passagens difíceis.** Começando devagar e subindo o andamento aos poucos, o corpo aprende o movimento certo antes de ganhar velocidade. É o método descrito em [Como estudar com metrônomo](/como-estudar-com-metronomo/).
+2. **Desenvolver precisão rítmica.** Exercícios como tocar só nos tempos 2 e 4, deslocar o clique para o contratempo ou reduzir a um clique por compasso treinam o tempo interno de forma direta. Esses exercícios aparecem nos artigos sobre [bateria](/metronomo-para-bateria/), [violão](/metronomo-para-violao/) e [piano](/metronomo-para-piano/).
+3. **Definir o andamento certo.** Antes de ensaiar ou gravar, o metrônomo dá a referência do BPM da música. O [guia de andamentos](/andamentos/) explica o que cada velocidade significa e em que estilos aparece.
+
+## Andamentos mais comuns
+
+| Faixa | Nome | Onde aparece |
+|---|---|---|
+| 50 – 70 BPM | Largo, Adagio | Baladas lentas, hinos, movimentos lentos |
+| 70 – 97 BPM | Adagietto, Andante | Bossa nova, reggae, samba, hip-hop |
+| 97 – 132 BPM | Moderato, Allegretto | Pop, rock, forró, house |
+| 132 – 177 BPM | Allegro, Vivace | Axé, punk, ska, drum and bass |
+| 177 – 240 BPM | Presto | Valsa vienense, bebop, metal |
+
+A tabela completa, com todas as marcações e um guia de 40 a 200 BPM, está na página de [andamentos musicais](/andamentos/).
+
+## Precisão
+
+Muitos metrônomos de navegador usam temporizadores comuns de JavaScript, que atrasam quando a página perde o foco. Este metrônomo agenda cada clique no relógio da **Web Audio API**, o mesmo usado por softwares de gravação, com precisão de frações de milissegundo. Se o clique parecer irregular, a causa quase sempre é externa: fones Bluetooth, que adicionam latência variável, outra aba consumindo o processador ou a economia de bateria do celular.

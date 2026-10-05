@@ -15,12 +15,8 @@
   {{- end }}
   {{- end }}
 
-  <h2>Metrônomo por andamento</h2>
-  <p class="links">
-  {{- range sort (where site.RegularPages "Type" "bpm") "Params.bpm" }}
-    {{- if eq .Params.bpm $.Params.bpm }}<strong>{{ .Params.bpm }} BPM</strong>{{ else }}<a href="{{ .RelPermalink }}">{{ .Params.bpm }} BPM</a>{{ end }}
-  {{- end }}
-  </p>
+  <h2>Andamentos</h2>
+  <p>Não sabe qual BPM usar? Veja o <a href="/andamentos/">guia de andamentos musicais</a>, com a tabela de Largo a Presto e um link para abrir o metrônomo em cada velocidade.</p>
 
   <h2>Artigos</h2>
   <ul>
