@@ -1,6 +1,9 @@
 ---
 title: Política de Privacidade
 description: Como o meumetronomo.com.br trata dados, cookies e anúncios.
+sitemap:
+  priority: 0.3
+  changefreq: yearly
 ---
 
 O **Meu Metrônomo** é uma ferramenta gratuita que roda inteiramente no seu navegador. Não exigimos cadastro e não coletamos nome, e-mail ou qualquer dado pessoal para usar o metrônomo.

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ .Site.Title }} - Metrônomo Online Grátis</title>
-<meta name="description" content="{{ .Site.Params.description }}">
-<link rel="canonical" href="{{ .Permalink }}">
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ partial "head-seo.html" . }}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"{{ .Site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","inLanguage":"{{ .Site.LanguageCode }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Site.Params.description }}"}
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","@id":"{{ .Permalink }}#website","url":"{{ .Permalink }}","name":"{{ site.Title }}","inLanguage":"pt-BR"},
+ {"@type":"WebApplication","name":"{{ site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ site.Params.description }}"}
+]}
 </script>
 {{ partial "head-google.html" . }}
 </head>
