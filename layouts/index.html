@@ -73,6 +73,11 @@
 </main>
 
 <footer>© {{ now.Year }} meumetronomo.com.br · <a href="/privacidade/">Privacidade</a></footer>
-<script>{{ (resources.Get "js/app.js" | minify).Content | safeJS }}</script>
+{{ $js := resources.Get "js/app.js" | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}"></script>
+{{- if or site.Params.adsense.slotTop site.Params.adsense.slotBottom }}
+{{ $ads := resources.FromString "js/ads.js" "document.querySelectorAll('ins.adsbygoogle').forEach(function(){(adsbygoogle=window.adsbygoogle||[]).push({})});" | minify | fingerprint }}
+<script defer src="{{ $ads.RelPermalink }}"></script>
+{{- end }}
 </body>
 </html>

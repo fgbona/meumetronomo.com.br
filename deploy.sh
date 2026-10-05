@@ -12,7 +12,7 @@ HUGO="${HUGO:-/usr/local/bin/hugo}"
 snapshot() { [ -d public ] && find public -name index.html -type f -print0 | sort -z | xargs -0 md5sum 2>/dev/null || true; }
 ANTES=$(snapshot)
 
-"$HUGO" --minify --gc
+"$HUGO" --minify --gc --cleanDestinationDir
 chown -R appsec:appsec public
 chmod 755 . public   # nginx roda como nobody e precisa atravessar a pasta
 echo "publicado em $(pwd)/public ($(find public -type f | wc -l) arquivos)"
