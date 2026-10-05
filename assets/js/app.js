@@ -15,7 +15,6 @@
     state.bpm = Math.min(MAX, Math.max(MIN, Math.round(v)));
     bpmInput.value = bpmValue.textContent = state.bpm;
     bpmName.textContent = NAMES.find(([min]) => state.bpm >= min)[1];
-    document.title = `${state.bpm} BPM - Meu Metrônomo`;
   }
   function setBeats(v) {
     state.beats = Math.min(12, Math.max(1, Math.round(v) || 1));
