@@ -74,6 +74,6 @@
 </main>
 
 <footer>© {{ now.Year }} meumetronomo.com.br · <a href="/privacidade/">Privacidade</a></footer>
-<script src="{{ "js/app.js" | relURL }}"></script>
+<script>{{ (resources.Get "js/app.js" | minify).Content | safeJS }}</script>
 </body>
 </html>

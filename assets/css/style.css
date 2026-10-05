@@ -1,6 +1,6 @@
 :root {
-  --bg: #f5f6f8; --fg: #1b1d22; --muted: #6b7280; --card: #fff; --line: #e3e5ea;
-  --accent: #e63946; --accent-fg: #fff; --beat: #d1d5db; --beat-on: #e63946; --beat-first: #1b1d22;
+  --bg: #f5f6f8; --fg: #1b1d22; --muted: #5a6270; --card: #fff; --line: #e3e5ea;
+  --accent: #c8102e; --accent-fg: #fff; --beat: #d1d5db; --beat-on: #c8102e; --beat-first: #1b1d22;
 }
 :root[data-theme="dark"] {
   --bg: #121418; --fg: #f1f3f5; --muted: #9aa0a8; --card: #1c1f26; --line: #2a2e37;

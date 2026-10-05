@@ -17,5 +17,9 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{- with site.Params.adsense.client }}
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+{{- end }}
+<style>{{ (resources.Get "css/style.css" | minify).Content | safeCSS }}</style>
 {{ partial "head-google.html" . }}
