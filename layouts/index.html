@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ .Site.Title }} - Metrônomo Online Grátis</title>
+<meta name="description" content="{{ .Site.Params.description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"{{ .Site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","inLanguage":"{{ .Site.LanguageCode }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Site.Params.description }}"}
+</script>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="/">{{ .Site.Title }}</a>
+  <div class="top-actions">
+    <button id="theme" class="icon" type="button" title="Modo claro / escuro" aria-label="Modo claro / escuro">◐</button>
+    <button id="fullscreen" class="icon" type="button" title="Tela cheia" aria-label="Tela cheia">⛶</button>
+  </div>
+</header>
+
+<main>
+  <h1>{{ .Title }}</h1>
+  <p class="lead">{{ .Params.lead }}</p>
+  <section class="metronome" id="metronome">
+    <div class="tempo">
+      <button class="round" id="bpm-dec" type="button" aria-label="Diminuir BPM">−</button>
+      <div class="bpm">
+        <output id="bpm-value" for="bpm">120</output>
+        <span id="bpm-name" class="bpm-name">Allegro</span>
+      </div>
+      <button class="round" id="bpm-inc" type="button" aria-label="Aumentar BPM">+</button>
+    </div>
+    <input id="bpm" type="range" min="1" max="240" value="120" aria-label="BPM">
+
+    <div class="beats" id="beats" aria-hidden="true"></div>
+
+    <div class="controls">
+      <button id="start" class="primary" type="button">Iniciar</button>
+      <button id="tap" type="button">Tap BPM</button>
+    </div>
+
+    <div class="options">
+      <label class="opt">
+        <span>Batidas</span>
+        <span class="stepper">
+          <button id="beats-dec" type="button" aria-label="Menos batidas">−</button>
+          <input id="beats-count" type="number" min="1" max="12" value="4" aria-label="Batidas por compasso">
+          <button id="beats-inc" type="button" aria-label="Mais batidas">+</button>
+        </span>
+      </label>
+      <label class="opt"><input id="accent" type="checkbox" checked> <span>Acentuar primeira batida</span></label>
+      <label class="opt">
+        <input id="timer" type="checkbox"> <span>Temporizador</span>
+        <input id="timer-min" type="number" min="1" max="120" value="5" aria-label="Minutos" disabled> <span>min</span>
+      </label>
+    </div>
+
+    <fieldset class="subdivisions">
+      <legend>Subdivisões</legend>
+      <div id="subdivisions"></div>
+    </fieldset>
+  </section>
+
+  <article class="text">
+    {{ .Content }}
+  </article>
+</main>
+
+<footer>© {{ now.Year }} meumetronomo.com.br</footer>
+<script src="{{ "js/app.js" | relURL }}"></script>
+</body>
+</html>

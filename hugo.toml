@@ -1,0 +1,10 @@
+baseURL = "https://meumetronomo.com.br/"
+languageCode = "pt-BR"
+title = "Meu Metrônomo"
+disableKinds = ["taxonomy", "term", "section", "rss"]
+
+[params]
+  description = "Metrônomo online simples com batidas sonoras e visuais. Defina o BPM, use o Tap BPM, ajuste o número de batidas, subdivisões e o temporizador."
+
+[minify]
+  minifyOutput = true
