@@ -8,3 +8,6 @@
     try { localStorage.theme = root.dataset.theme; } catch {}
   };
 })();
+// Fecha o menu ao clicar fora ou apertar Esc
+document.addEventListener('click', (e) => document.querySelectorAll('details.menu[open]').forEach((d) => { if (!d.contains(e.target)) d.open = false; }));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') document.querySelectorAll('details.menu[open]').forEach((d) => (d.open = false)); });

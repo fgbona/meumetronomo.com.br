@@ -24,8 +24,15 @@ input[type=number] { font: inherit; color: inherit; background: var(--card); bor
 .logo { font-weight: 700; text-decoration: none; }
 .icon { display: inline-flex; padding: .45em .6em; }
 .top-actions { display: flex; align-items: center; gap: 8px; }
-.nav { text-decoration: none; color: var(--muted); margin-right: 4px; }
-.nav:hover { color: var(--fg); }
+.menu { position: relative; }
+.menu summary { list-style: none; cursor: pointer; padding: .45em .7em; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary::after { content: " ▾"; color: var(--muted); }
+.menu[open] summary { border-color: var(--muted); }
+.menu ul { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; min-width: 220px; margin: 0; padding: 6px; list-style: none; background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+.menu li a { display: block; padding: .5em .8em; border-radius: 6px; text-decoration: none; }
+.menu li a:hover { background: var(--bg); }
+.menu .all { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 6px; color: var(--muted); }
 
 main { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
 h1 { text-align: center; margin: 8px 0 4px; }
