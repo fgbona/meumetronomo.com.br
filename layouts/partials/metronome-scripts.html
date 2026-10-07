@@ -1,4 +1,4 @@
-{{ partial "scripts.html" (slice "js/theme.js" "js/app.js") }}
+{{ partial "scripts.html" (slice "js/theme.js" "js/figures.js" "js/app.js") }}
 {{- if or site.Params.adsense.slotTop site.Params.adsense.slotBottom }}
 {{ $ads := resources.FromString "js/ads.js" "document.querySelectorAll('ins.adsbygoogle').forEach(function(){(adsbygoogle=window.adsbygoogle||[]).push({})});" | minify | fingerprint }}
 <script defer src="{{ $ads.RelPermalink }}"></script>

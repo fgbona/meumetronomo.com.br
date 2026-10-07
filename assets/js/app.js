@@ -1,6 +1,5 @@
 (() => {
   const $ = (id) => document.getElementById(id);
-  const PATTERNS = ['1', '1-1', '1-1-1', '1-1-1-1', '1-0-0-1', '1-1-0-0', '1-0-1-0-1-1', '1-1-1-0-1-0', '1-0-1-1-1-0', '1-0-0-1-1-1', '1-1-1-1-0-0'];
   const NAMES = [[240, 'Prestissimo'], [177, 'Presto'], [140, 'Vivace'], [132, 'Allegro'], [109, 'Allegretto'], [97, 'Moderato'], [85, 'Andante'], [70, 'Adagietto'], [60, 'Adagio'], [50, 'Largo'], [45, 'Lento'], [25, 'Grave'], [0, 'Larghissimo']];
   const MIN = 1, MAX = 240;
   // Sons sintetizados: f = frequência [acento, batida, subdivisão], d = decaimento (s), noise = ruído filtrado junto
@@ -56,53 +55,8 @@
   $('sound').onchange = (e) => { setSound(e.target.value); if (!state.running) preview(); };
   $('flash').onchange = (e) => setFlash(e.target.checked);
 
-  // ---- Figuras musicais das subdivisões (SVG). l: 0 semínima, 1 colcheia, 2 semicolcheia; d: pontuada; r: pausa de colcheia; t: número da quiáltera
-  const FIGURES = [
-    { n: [{ l: 0 }], name: 'Semínima' },
-    { n: [{ l: 1 }, { l: 1 }], name: 'Duas colcheias' },
-    { n: [{ l: 1 }, { l: 1 }, { l: 1 }], t: 3, name: 'Tercina de colcheias' },
-    { n: [{ l: 2 }, { l: 2 }, { l: 2 }, { l: 2 }], name: 'Quatro semicolcheias' },
-    { n: [{ l: 1, d: 1 }, { l: 2 }], name: 'Colcheia pontuada e semicolcheia' },
-    { n: [{ l: 2 }, { l: 1, d: 1 }], name: 'Semicolcheia e colcheia pontuada' },
-    { n: [{ l: 1 }, { l: 1 }, { l: 2 }, { l: 2 }], t: 3, name: 'Colcheia, colcheia e duas semicolcheias' },
-    { n: [{ l: 2 }, { l: 2 }, { l: 1 }, { l: 1 }], t: 3, name: 'Duas semicolcheias e duas colcheias' },
-    { n: [{ l: 1 }, { l: 2 }, { l: 2 }, { l: 1 }], t: 3, name: 'Colcheia, duas semicolcheias e colcheia' },
-    { n: [{ l: 1, d: 1 }, { l: 2 }, { l: 2 }, { l: 2 }], t: 3, name: 'Colcheia pontuada e três semicolcheias' },
-    { n: [{ l: 2 }, { l: 2 }, { l: 2 }, { l: 2 }, { r: 1 }], t: 3, name: 'Quatro semicolcheias e pausa' },
-  ];
-  function figure({ n, t }) {
-    const step = 17, x0 = 9, head = 36, top = 12, w = x0 + n.length * step + 2;
-    let out = '';
-    const sx = (i) => x0 + i * step + 5; // x da haste
-    n.forEach((o, i) => {
-      const cx = x0 + i * step;
-      if (o.r) { // pausa de colcheia
-        out += `<path d="M${cx - 3} ${top + 10} q4 4 8 0 l-4 14" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="${cx - 3}" cy="${top + 10}" r="1.8"/>`;
-        return;
-      }
-      out += `<ellipse cx="${cx}" cy="${head}" rx="5.2" ry="3.6" transform="rotate(-22 ${cx} ${head})"/>`;
-      out += `<rect x="${sx(i) - 0.8}" y="${top}" width="1.6" height="${head - top}"/>`;
-      if (o.d) out += `<circle cx="${cx + 8}" cy="${head - 2}" r="1.5"/>`;
-      if (o.l && n.length === 1) out += `<path d="M${sx(i)} ${top} q8 6 4 14" fill="none" stroke="currentColor" stroke-width="2"/>`;
-    });
-    const notes = n.map((o, i) => ({ ...o, i })).filter((o) => !o.r);
-    if (notes.length > 1) {
-      const a = sx(notes[0].i), b = sx(notes[notes.length - 1].i);
-      out += `<rect x="${a - 0.8}" y="${top}" width="${b - a + 1.6}" height="3.5"/>`;
-      notes.forEach((o, k) => { // feixe secundário: inteiro entre semicolcheias vizinhas, ou um toco
-        if (o.l !== 2) return;
-        const next = notes[k + 1], prev = notes[k - 1];
-        if (next && next.l === 2) out += `<rect x="${sx(o.i) - 0.8}" y="${top + 5.5}" width="${sx(next.i) - sx(o.i) + 1.6}" height="3.5"/>`;
-        else if (!(prev && prev.l === 2)) {
-          const dir = prev ? -1 : 1;
-          out += `<rect x="${dir < 0 ? sx(o.i) - 7 : sx(o.i) - 0.8}" y="${top + 5.5}" width="7.8" height="3.5"/>`;
-        }
-      });
-    }
-    if (t) out += `<text x="${(sx(0) + sx(n.length - 1)) / 2}" y="${top - 4}" font-size="11" font-style="italic" font-weight="700" text-anchor="middle" font-family="serif">${t}</text>`;
-    return `<svg viewBox="0 0 ${w} 44" width="${w}" height="44" fill="currentColor" aria-hidden="true">${out}</svg>`;
-  }
-  $('subdivisions').innerHTML = PATTERNS.map((p, i) =>
+  const { PATTERNS, FIGURES, figure } = window.MMFIG;
+  $('subdivisions').innerHTML = PATTERNS.slice(0, 11).map((p, i) =>
     `<label title="${FIGURES[i].name}"><input type="radio" name="sub" value="${i}" aria-label="${FIGURES[i].name}"${i === 0 ? ' checked' : ''}>${figure(FIGURES[i])}</label>`
   ).join('');
   $('subdivisions').addEventListener('change', (e) => setSub(e.target.value));

@@ -1,0 +1,13 @@
+<section class="card" id="drone">
+  <div class="big"><span id="drone-hz">Lá2 · 110.00 Hz</span><small>nota pedal</small></div>
+  <div class="form">
+    <label class="opt"><span>Nota</span> <select id="drone-note" aria-label="Nota"></select></label>
+    <label class="opt"><span>Oitava</span> <select id="drone-oct" aria-label="Oitava"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+    <label class="opt"><input id="drone-fifth" type="checkbox" checked> <span>Com a quinta</span></label>
+  </div>
+  <div class="form">
+    <label class="opt"><span>Harmônicos</span> <input id="drone-rich" type="range" min="0" max="100" value="60" aria-label="Riqueza de harmônicos"></label>
+    <label class="opt"><span>Volume</span> <input id="drone-vol" type="range" min="0" max="100" value="50" aria-label="Volume"></label>
+  </div>
+  <div class="controls"><button id="drone-start" class="primary" type="button">Tocar</button></div>
+</section>

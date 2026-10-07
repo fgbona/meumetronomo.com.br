@@ -214,4 +214,213 @@
     $('ear-repeat').onclick = () => (q === null ? ask() : play());
     [mode, level].forEach((s) => (s.onchange = () => { q = null; answers.innerHTML = ''; status.textContent = ''; level.disabled = mode.value === 'acordes'; }));
   }
+
+  // ---- Transpositor de cifras ----
+  if ($('transpose')) {
+    const SHARP = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'], FLAT = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+    const IDX = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+    const CHORD = /^([A-G])(#|b)?([^\/\s]*)(?:\/([A-G])(#|b)?)?$/;
+    const SUFFIX = /^(m|M|maj|min|dim|aug|sus|add|º|°|ø|\+|-|\d|\(|\)|#|b|\/|j|M7|maj7)*$/;
+    const input = $('transpose-in'), out = $('transpose-out'), semi = $('transpose-semi'), acc = $('transpose-acc');
+    const isChord = (t) => { const m = t.match(CHORD); return m && SUFFIX.test(m[3]); };
+    const shift = (root, a, n, names) => names[(IDX[root] + (a === '#' ? 1 : a === 'b' ? -1 : 0) + n + 120) % 12];
+    function run() {
+      const n = +semi.value, names = acc.value === 'b' ? FLAT : SHARP;
+      out.textContent = input.value.split('\n').map((line) => {
+        const tokens = line.split(/(\s+)/), words = tokens.filter((t) => t.trim());
+        if (!words.length || words.filter(isChord).length / words.length < 0.6) return line;
+        return tokens.map((t) => {
+          const m = t.match(CHORD); if (!m || !SUFFIX.test(m[3])) return t;
+          return shift(m[1], m[2], n, names) + m[3] + (m[4] ? '/' + shift(m[4], m[5], n, names) : '');
+        }).join('');
+      }).join('\n');
+    }
+    [input, semi, acc].forEach((e) => e.addEventListener('input', run));
+    $('transpose-copy').onclick = async () => { try { await navigator.clipboard.writeText(out.textContent); $('transpose-copy').textContent = 'Copiado!'; setTimeout(() => ($('transpose-copy').textContent = 'Copiar'), 1500); } catch {} };
+    run();
+  }
+
+  // ---- Polirritmia ----
+  if ($('poly')) {
+    const dotsA = $('poly-dots-a'), dotsB = $('poly-dots-b'), btn = $('poly-start');
+    let running = false, timer, nextCycle = 0, cycleLen = 0, events = [];
+    const cfg = () => ({ a: Math.min(12, Math.max(2, +$('poly-a').value || 3)), b: Math.min(12, Math.max(2, +$('poly-b').value || 2)), bpm: Math.min(240, Math.max(20, +$('poly-bpm').value || 90)) });
+    function render() {
+      const { a, b } = cfg();
+      dotsA.innerHTML = Array.from({ length: a }, () => '<span class="beat"></span>').join('');
+      dotsB.innerHTML = Array.from({ length: b }, () => '<span class="beat"></span>').join('');
+      $('poly-label').textContent = `${a} contra ${b}`;
+    }
+    function hit(time, row, i) {
+      if (!$(`poly-mute-${row}`).checked) tone(row === 'a' ? 880 : 440, time, 0.08, 'sine', 0.8);
+      setTimeout(() => {
+        const dots = (row === 'a' ? dotsA : dotsB).children;
+        [...dots].forEach((d, j) => d.classList.toggle('on', j === i));
+      }, Math.max(0, (time - ctx.currentTime) * 1000));
+    }
+    function schedule() {
+      const { a, b, bpm } = cfg();
+      cycleLen = a * 60 / bpm;
+      while (nextCycle < ctx.currentTime + 0.1) {
+        for (let i = 0; i < a; i++) events.push([nextCycle + i * cycleLen / a, 'a', i]);
+        for (let i = 0; i < b; i++) events.push([nextCycle + i * cycleLen / b, 'b', i]);
+        nextCycle += cycleLen;
+      }
+      events.sort((x, y) => x[0] - y[0]);
+      while (events.length && events[0][0] < ctx.currentTime + 0.1) hit(...events.shift());
+    }
+    btn.onclick = () => {
+      if (running) { clearInterval(timer); running = false; btn.textContent = 'Iniciar'; events = []; render(); return; }
+      audio(); render(); nextCycle = ctx.currentTime + 0.1; events = [];
+      timer = setInterval(schedule, 25); running = true; btn.textContent = 'Parar';
+    };
+    $('poly').querySelectorAll('[data-poly]').forEach((b) => (b.onclick = () => { [$('poly-a').value, $('poly-b').value] = b.dataset.poly.split(':'); render(); }));
+    ['poly-a', 'poly-b'].forEach((id) => $(id).addEventListener('input', render));
+    render();
+  }
+
+  // ---- Drone ----
+  if ($('drone')) {
+    const btn = $('drone-start'), note = $('drone-note'), oct = $('drone-oct'), fifth = $('drone-fifth'), rich = $('drone-rich'), vol = $('drone-vol');
+    let nodes = [], master;
+    note.innerHTML = NOTES.map((n, i) => `<option value="${i}"${i === 9 ? ' selected' : ''}>${n}</option>`).join('');
+    const freq = () => midiHz((+oct.value + 1) * 12 + +note.value);
+    function build() {
+      stop(); audio();
+      master = ctx.createGain(); master.gain.setValueAtTime(0, ctx.currentTime); master.gain.linearRampToValueAtTime(+vol.value / 100, ctx.currentTime + 0.4);
+      master.connect(ctx.destination);
+      const f = freq(), r = +rich.value / 100;
+      const parts = [[1, 0.5, -3], [1, 0.5, 3], [2, 0.3 * r, 0], [4, 0.12 * r, 0]];
+      if (fifth.checked) parts.push([1.5, 0.3, 0], [3, 0.1 * r, 0]);
+      parts.forEach(([mult, g, cents]) => {
+        const o = ctx.createOscillator(), gn = ctx.createGain();
+        o.type = 'sine'; o.frequency.value = f * mult; o.detune.value = cents; gn.gain.value = g;
+        o.connect(gn).connect(master); o.start(); nodes.push(o);
+      });
+      btn.textContent = 'Parar'; $('drone-hz').textContent = `${NOTES[+note.value]}${oct.value} · ${f.toFixed(2)} Hz`;
+    }
+    function stop() {
+      if (!nodes.length) return;
+      master.gain.setTargetAtTime(0, ctx.currentTime, 0.1);
+      nodes.forEach((o) => o.stop(ctx.currentTime + 0.5)); nodes = []; btn.textContent = 'Tocar';
+    }
+    btn.onclick = () => (nodes.length ? stop() : build());
+    [note, oct, fifth, rich].forEach((e) => e.addEventListener('change', () => nodes.length && build()));
+    vol.addEventListener('input', () => master && master.gain.setTargetAtTime(+vol.value / 100, ctx.currentTime, 0.05));
+  }
+
+  // ---- Escalas ----
+  if ($('scales')) {
+    const SCALES = {
+      'Maior (jônio)': [2, 2, 1, 2, 2, 2, 1], 'Menor natural (eólio)': [2, 1, 2, 2, 1, 2, 2], 'Menor harmônica': [2, 1, 2, 2, 1, 3, 1], 'Menor melódica': [2, 1, 2, 2, 2, 2, 1],
+      'Dórico': [2, 1, 2, 2, 2, 1, 2], 'Frígio': [1, 2, 2, 2, 1, 2, 2], 'Lídio': [2, 2, 2, 1, 2, 2, 1], 'Mixolídio': [2, 2, 1, 2, 2, 1, 2], 'Lócrio': [1, 2, 2, 1, 2, 2, 2],
+      'Pentatônica maior': [2, 2, 3, 2, 3], 'Pentatônica menor': [3, 2, 2, 3, 2], 'Blues': [3, 2, 1, 1, 3, 2], 'Tons inteiros': [2, 2, 2, 2, 2, 2], 'Diminuta (tom-semitom)': [2, 1, 2, 1, 2, 1, 2, 1], 'Cromática': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    };
+    const TRIAD = { '4,3': '', '3,4': 'm', '3,3': 'º', '4,4': '+' }, ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+    const root = $('scale-root'), type = $('scale-type');
+    root.innerHTML = NOTES.map((n, i) => `<option value="${i}">${n}</option>`).join('');
+    type.innerHTML = Object.keys(SCALES).map((k) => `<option>${k}</option>`).join('');
+    let notes = [];
+    function render() {
+      const r = +root.value, steps = SCALES[type.value];
+      notes = [r]; steps.slice(0, -1).forEach((s) => notes.push(notes[notes.length - 1] + s));
+      $('scale-notes').innerHTML = notes.map((n, i) => `<span class="pill"><b>${NOTES[n % 12]}</b><small>${i + 1}</small></span>`).join('');
+      $('scale-formula').textContent = steps.map((s) => ({ 1: 'ST', 2: 'T', 3: 'T+ST' })[s]).join(' – ');
+      if (steps.length === 7) {
+        const chords = notes.map((_, i) => {
+          const a = (notes[(i + 2) % 7] - notes[i] + 24) % 12, b = (notes[(i + 4) % 7] - notes[(i + 2) % 7] + 24) % 12, q = TRIAD[`${a},${b}`];
+          return q == null ? null : [ROMAN[i], NOTES[notes[i] % 12] + q];
+        });
+        $('scale-chords').innerHTML = chords.map((c) => c ? `<span class="pill"><b>${c[1]}</b><small>${c[0]}</small></span>` : '').join('');
+        $('scale-chords-wrap').hidden = false;
+      } else $('scale-chords-wrap').hidden = true;
+    }
+    $('scale-play').onclick = () => { audio(); const t = ctx.currentTime + 0.05; [...notes, notes[0] + 12].forEach((n, i) => tone(midiHz(48 + n), t + i * 0.4, 0.38)); };
+    [root, type].forEach((e) => (e.onchange = render));
+    render();
+  }
+
+  // ---- Leitura rítmica ----
+  if ($('reading')) {
+    const { PATTERNS, FIGURES, figure } = window.MMFIG;
+    const LEVELS = { 1: [0, 0, 0, 11, 1], 2: [0, 0, 1, 1, 11, 12, 13], 3: [0, 1, 1, 2, 3, 4, 11, 12, 13], 4: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] };
+    const sheet = $('reading-sheet'), btn = $('reading-start');
+    let bars = [], running = false, timer, nextTime = 0, pos = 0, total = 0;
+    const cfg = () => ({ beats: Math.min(6, Math.max(2, +$('reading-beats').value || 4)), nbars: Math.min(8, Math.max(1, +$('reading-bars').value || 2)), bpm: Math.min(200, Math.max(30, +$('reading-bpm').value || 70)) });
+    function generate() {
+      const { beats, nbars } = cfg(), pool = LEVELS[$('reading-level').value] || LEVELS[2];
+      bars = Array.from({ length: nbars }, () => Array.from({ length: beats }, () => pool[Math.floor(Math.random() * pool.length)]));
+      sheet.innerHTML = bars.map((bar) => `<span class="bar">${bar.map((p) => `<span class="fig" title="${FIGURES[p].name}">${figure(FIGURES[p])}</span>`).join('')}</span>`).join('');
+    }
+    function schedule() {
+      const { beats, bpm } = cfg(), beatLen = 60 / bpm, cells = sheet.querySelectorAll('.fig');
+      while (nextTime < ctx.currentTime + 0.1) {
+        if (pos >= total + beats) { stop(); return; }
+        const t = nextTime, p = pos;
+        if (p < beats) click(t, p === 0); // compasso de contagem
+        else {
+          const idx = p - beats, pat = PATTERNS[bars[Math.floor(idx / beats)][idx % beats]].split('-').map(Number);
+          click(t, idx % beats === 0);
+          if ($('reading-play').checked) pat.forEach((on, k) => on && tone(1500, t + k * beatLen / pat.length, 0.05, 'square', 0.3));
+          setTimeout(() => cells.forEach((c, j) => c.classList.toggle('on', j === idx)), Math.max(0, (t - ctx.currentTime) * 1000));
+        }
+        if (p < beats) setTimeout(() => ($('reading-status').textContent = `Contagem: ${p + 1}`), Math.max(0, (t - ctx.currentTime) * 1000));
+        else setTimeout(() => ($('reading-status').textContent = ''), Math.max(0, (t - ctx.currentTime) * 1000));
+        nextTime += beatLen; pos++;
+      }
+    }
+    function stop() { clearInterval(timer); running = false; btn.textContent = 'Tocar'; sheet.querySelectorAll('.fig').forEach((c) => c.classList.remove('on')); $('reading-status').textContent = ''; }
+    btn.onclick = () => {
+      if (running) return stop();
+      audio(); const { beats } = cfg(); total = bars.length * beats; pos = 0; nextTime = ctx.currentTime + 0.1;
+      timer = setInterval(schedule, 25); running = true; btn.textContent = 'Parar';
+    };
+    $('reading-new').onclick = () => { stop(); generate(); };
+    ['reading-beats', 'reading-bars', 'reading-level'].forEach((id) => $(id).addEventListener('change', () => { stop(); generate(); }));
+    generate();
+  }
+
+  // ---- BPM de arquivo de áudio ----
+  if ($('bpmfile')) {
+    const status = $('bpmfile-status'), out = $('bpmfile-out');
+    // ponytail: envelope de energia + autocorrelação; troque por beat tracking (ex.: Ellis) se precisar de posição das batidas
+    function detect(ch, sr) {
+      const hop = 512, n = Math.floor(ch.length / hop), env = new Float32Array(n);
+      for (let i = 0; i < n; i++) { let s = 0; for (let j = i * hop; j < (i + 1) * hop; j++) s += ch[j] * ch[j]; env[i] = Math.sqrt(s / hop); }
+      const onset = new Float32Array(n); let mean = 0;
+      for (let i = 1; i < n; i++) { onset[i] = Math.max(0, env[i] - env[i - 1]); mean += onset[i]; }
+      mean /= n; for (let i = 0; i < n; i++) onset[i] -= mean;
+      const fps = sr / hop, minLag = Math.floor(fps * 60 / 200), maxLag = Math.ceil(fps * 60 / 60);
+      const ac = new Float32Array(maxLag + 1);
+      for (let lag = minLag; lag <= maxLag; lag++) { let s = 0; for (let i = lag; i < n; i++) s += onset[i] * onset[i - lag]; ac[lag] = s / (n - lag); }
+      // pente harmônico: um lag bom também tem pico no dobro e na metade
+      const score = (lag) => ac[lag] + 0.5 * (ac[lag * 2] || 0) + 0.5 * (ac[Math.round(lag / 2)] || 0);
+      const cands = [];
+      for (let lag = minLag + 1; lag < maxLag; lag++) if (ac[lag] > ac[lag - 1] && ac[lag] >= ac[lag + 1]) cands.push([score(lag), lag]);
+      cands.sort((a, b) => b[0] - a[0]);
+      return cands.slice(0, 3).map(([sc, lag]) => {
+        const y1 = ac[lag - 1], y2 = ac[lag], y3 = ac[lag + 1], d = (y1 + y3 - 2 * y2) / 2, l = d ? lag - (y3 - y1) / (4 * d) : lag;
+        return { bpm: 60 * fps / l, conf: sc / (cands[0][0] || 1) };
+      });
+    }
+    $('bpmfile-in').onchange = async (e) => {
+      const file = e.target.files[0]; if (!file) return;
+      status.textContent = 'Decodificando…'; out.innerHTML = '';
+      try {
+        audio();
+        const buf = await ctx.decodeAudioData(await file.arrayBuffer());
+        const sr = buf.sampleRate, len = Math.min(buf.length, sr * 120), mono = new Float32Array(len);
+        for (let c = 0; c < buf.numberOfChannels; c++) { const d = buf.getChannelData(c); for (let i = 0; i < len; i++) mono[i] += d[i] / buf.numberOfChannels; }
+        status.textContent = 'Analisando…';
+        await new Promise((r) => setTimeout(r, 30));
+        const res = detect(mono, sr);
+        if (!res.length) { status.textContent = 'Não encontrei um pulso claro. Tente um trecho com bateria ou percussão.'; return; }
+        const best = res[0].bpm;
+        out.innerHTML = `<div class="big"><span>${best.toFixed(1)}</span><small>BPM estimado</small></div>
+          <p class="status">Alternativas: ${res.slice(1).map((r) => r.bpm.toFixed(1)).join(' · ') || '–'} · metade ${(best / 2).toFixed(1)} · dobro ${(best * 2).toFixed(1)}</p>
+          <div class="controls"><a class="button" href="/?bpm=${Math.round(best)}">Abrir o metrônomo em ${Math.round(best)} BPM</a></div>`;
+        status.textContent = `${file.name} · ${Math.round(buf.duration)} s analisados${buf.duration > 120 ? ' (primeiros 2 min)' : ''}`;
+      } catch (err) { status.textContent = 'Não consegui ler este arquivo. Use MP3, WAV, OGG, M4A ou FLAC.'; }
+    };
+  }
 })();

@@ -1,0 +1,24 @@
+<section class="card" id="transpose">
+  <div class="form">
+    <label class="opt"><span>Transpor</span>
+      <select id="transpose-semi" aria-label="Semitons">
+        {{- range $i := seq -11 11 }}<option value="{{ $i }}"{{ if eq $i 0 }} selected{{ end }}>{{ if gt $i 0 }}+{{ end }}{{ $i }} semitom{{ if ne $i 1 }}{{ if ne $i -1 }}s{{ end }}{{ end }}</option>{{ end }}
+      </select>
+    </label>
+    <label class="opt"><span>Escrever com</span>
+      <select id="transpose-acc" aria-label="Sustenidos ou bemóis"><option value="#">sustenidos (C#, F#)</option><option value="b">bemóis (Db, Gb)</option></select>
+    </label>
+  </div>
+  <div class="cols">
+    <label><span class="status">Cifra original</span>
+<textarea id="transpose-in" rows="12" spellcheck="false" aria-label="Cifra original">[Intro] G  D/F#  Em  C
+
+G              D/F#
+Garota de Ipanema
+Em7            C7+
+Olha que coisa mais linda
+Am7   D7   G   Bm7(b5)  E7</textarea></label>
+    <div><span class="status">Cifra transposta <button id="transpose-copy" type="button" class="small">Copiar</button></span>
+<pre id="transpose-out" aria-live="polite"></pre></div>
+  </div>
+</section>

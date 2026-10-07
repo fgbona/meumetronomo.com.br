@@ -1,0 +1,15 @@
+<section class="card" id="poly">
+  <div class="big"><span id="poly-label">3 contra 2</span><small>polirritmia</small></div>
+  <div class="form">
+    <label class="opt"><input id="poly-a" type="number" min="2" max="12" value="3" aria-label="Pulsos da voz A"> <span>contra</span> <input id="poly-b" type="number" min="2" max="12" value="2" aria-label="Pulsos da voz B"></label>
+    <label class="opt"><span>BPM da voz A</span> <input id="poly-bpm" type="number" min="20" max="240" value="90" aria-label="BPM"></label>
+  </div>
+  <div class="form">
+    <button type="button" data-poly="3:2">3:2</button><button type="button" data-poly="4:3">4:3</button><button type="button" data-poly="5:4">5:4</button><button type="button" data-poly="7:4">7:4</button><button type="button" data-poly="5:3">5:3</button><button type="button" data-poly="7:5">7:5</button>
+  </div>
+  <div class="poly-rows">
+    <div class="poly-row"><label class="opt"><input id="poly-mute-a" type="checkbox"> <span>Mudo A (agudo)</span></label><div class="beats" id="poly-dots-a"></div></div>
+    <div class="poly-row"><label class="opt"><input id="poly-mute-b" type="checkbox"> <span>Mudo B (grave)</span></label><div class="beats" id="poly-dots-b"></div></div>
+  </div>
+  <div class="controls"><button id="poly-start" class="primary" type="button">Iniciar</button></div>
+</section>

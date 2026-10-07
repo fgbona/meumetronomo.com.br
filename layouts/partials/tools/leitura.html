@@ -1,0 +1,19 @@
+<section class="card" id="reading">
+  <div class="form">
+    <label class="opt"><span>Nível</span>
+      <select id="reading-level" aria-label="Nível">
+        <option value="1">1 · semínimas, pausas e colcheias</option><option value="2" selected>2 · colcheias e pausas de colcheia</option><option value="3">3 · tercinas, semicolcheias e pontuadas</option><option value="4">4 · todas as figuras</option>
+      </select>
+    </label>
+    <label class="opt"><span>Compasso</span> <input id="reading-beats" type="number" min="2" max="6" value="4" aria-label="Batidas por compasso"></label>
+    <label class="opt"><span>Compassos</span> <input id="reading-bars" type="number" min="1" max="8" value="2" aria-label="Número de compassos"></label>
+    <label class="opt"><span>BPM</span> <input id="reading-bpm" type="number" min="30" max="200" value="70" aria-label="BPM"></label>
+  </div>
+  <div class="sheet" id="reading-sheet"></div>
+  <p class="status" id="reading-status"></p>
+  <div class="controls">
+    <button id="reading-new" type="button">Novo exercício</button>
+    <button id="reading-start" class="primary" type="button">Tocar</button>
+  </div>
+  <div class="form"><label class="opt"><input id="reading-play" type="checkbox"> <span>Tocar o ritmo junto com o clique (ouvir a resposta)</span></label></div>
+</section>

@@ -5,10 +5,11 @@ Metrônomo e ferramentas para músicos em https://meumetronomo.com.br — site e
 - `hugo.toml` — configuração
 - `content/_index.md` — home (metrônomo); `content/*.md` — artigos (`type: artigo`), ferramentas (`type: ferramenta`, `tool: <nome>`) e páginas institucionais
 - `layouts/index.html` + `partials/metronome*.html` — home com o widget do metrônomo
-- `layouts/ferramenta/single.html` + `partials/tools/<nome>.html` — páginas de ferramenta (afinador, diapasão, delay, conversor, ritmo, ouvido)
+- `layouts/ferramenta/single.html` + `partials/tools/<nome>.html` — páginas de ferramenta (uma por `tool:`)
 - `assets/css/style.css` — tema claro/escuro (entra inline no HTML, minificado)
 - `assets/js/app.js` — metrônomo: Web Audio com agendamento lookahead, tap BPM, subdivisões, temporizador, trainer de velocidade, compassos mudos, sons, flash, ajustes salvos e presets (localStorage)
-- `assets/js/tools.js` — afinador (autocorrelação), gerador de tom, calculadora de delay, conversor, treino de ritmo e de ouvido
+- `assets/js/tools.js` — afinador (autocorrelação), gerador de tom, drone, transpositor de cifras, escalas, polirritmia, leitura rítmica, calculadora de delay, conversor, BPM de arquivo (envelope + autocorrelação), treino de ritmo e de ouvido
+- `assets/js/figures.js` — figuras rítmicas em SVG (subdivisões do metrônomo e leitura rítmica)
 - `assets/js/theme.js` — alternância de tema (em todas as páginas)
 
 Desenvolver: `hugo server` e abrir http://localhost:1313. Publicar: `./deploy.sh` (gera em `public/` e avisa o IndexNow).
