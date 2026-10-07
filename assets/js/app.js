@@ -4,7 +4,7 @@
   const NAMES = [[240, 'Prestissimo'], [177, 'Presto'], [140, 'Vivace'], [132, 'Allegro'], [109, 'Allegretto'], [97, 'Moderato'], [85, 'Andante'], [70, 'Adagietto'], [60, 'Adagio'], [50, 'Largo'], [45, 'Lento'], [25, 'Grave'], [0, 'Larghissimo']];
   const MIN = 1, MAX = 240;
 
-  const state = { bpm: 120, beats: 4, accent: true, pattern: [1], running: false };
+  const state = { bpm: 60, beats: 4, accent: true, pattern: [1], running: false };
   let ctx, nextTime = 0, beat = 0, sub = 0, tickTimer = null, stopTimer = null, taps = [];
 
   // ---- UI ----
@@ -159,6 +159,6 @@
   };
   $('fullscreen').onclick = () => (document.fullscreenElement ? document.exitFullscreen() : $('metronome').requestFullscreen());
 
-  setBpm(+new URLSearchParams(location.search).get('bpm') || +$('metronome').dataset.bpm || 120);
+  setBpm(+new URLSearchParams(location.search).get('bpm') || +$('metronome').dataset.bpm || 60);
   setBeats(4);
 })();

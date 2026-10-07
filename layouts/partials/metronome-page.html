@@ -1,4 +1,4 @@
-{{- $bpm := .Params.bpm | default 120 -}}
+{{- $bpm := .Params.bpm | default 60 -}}
 <h1>{{ .Title }}</h1>
 <p class="lead">{{ .Params.lead }}</p>
 {{ partial "metronome.html" (dict "bpm" $bpm) }}
