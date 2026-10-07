@@ -1,0 +1,5 @@
+{{- /* Objeto FAQPage para o @graph do JSON-LD; só emite se a página tiver faq no front matter */ -}}
+{{- with .Params.faq }},
+ {"@type":"FAQPage","mainEntity":[
+ {{- range $i, $f := . }}{{ if $i }},{{ end }}{"@type":"Question","name":{{ $f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ $f.a | markdownify | plainify | jsonify }}}}{{ end }}
+ ]}{{ end }}

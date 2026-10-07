@@ -1,0 +1,16 @@
+<section class="card" id="conv">
+  <div class="form">
+    <label class="opt"><span>BPM</span> <input id="conv-bpm" type="number" min="1" max="999" value="120" aria-label="BPM"></label>
+    <label class="opt"><span>Batidas por compasso</span> <input id="conv-beats" type="number" min="1" max="16" value="4" aria-label="Batidas por compasso"></label>
+    <span>1 compasso = <strong id="conv-bar"></strong></span>
+  </div>
+  <div class="form">
+    <label class="opt"><input id="conv-bars" type="number" min="0" max="9999" value="32" aria-label="Número de compassos"> <span>compassos duram</span></label>
+    <strong id="conv-dur" class="result"></strong>
+  </div>
+  <div class="form">
+    <label class="opt"><input id="conv-min" type="number" min="0" max="999" value="3" aria-label="Minutos"> <span>min</span>
+      <input id="conv-sec" type="number" min="0" max="59" value="30" aria-label="Segundos"> <span>s equivalem a</span></label>
+    <strong id="conv-bars-out" class="result"></strong>
+  </div>
+</section>

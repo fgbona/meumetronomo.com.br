@@ -36,4 +36,43 @@
       <legend>Subdivisões</legend>
       <div id="subdivisions"></div>
     </fieldset>
+
+    <details class="more">
+      <summary>Mais opções: som, flash, trainer de velocidade, compassos mudos</summary>
+      <div class="options">
+        <label class="opt">
+          <span>Som</span>
+          <select id="sound" aria-label="Som do clique">
+            <option value="bipe">Bipe</option>
+            <option value="madeira">Madeira</option>
+            <option value="clave">Clave</option>
+            <option value="tique">Tique</option>
+          </select>
+        </label>
+        <label class="opt"><input id="flash" type="checkbox"> <span>Flash visual na batida</span></label>
+      </div>
+      <div class="options">
+        <label class="opt">
+          <input id="trainer" type="checkbox"> <span>Trainer: subir</span>
+          <input id="trainer-step" type="number" min="1" max="20" value="4" aria-label="BPM por etapa"> <span>BPM a cada</span>
+          <input id="trainer-every" type="number" min="1" max="32" value="4" aria-label="Compassos por etapa"> <span>compassos até</span>
+          <input id="trainer-target" type="number" min="1" max="240" value="120" aria-label="BPM final"> <span>BPM</span>
+        </label>
+      </div>
+      <div class="options">
+        <label class="opt">
+          <input id="gap" type="checkbox"> <span>Tocar</span>
+          <input id="gap-play" type="number" min="1" max="16" value="4" aria-label="Compassos com som"> <span>compassos e silenciar</span>
+          <input id="gap-mute" type="number" min="1" max="16" value="2" aria-label="Compassos mudos">
+        </label>
+      </div>
+    </details>
+
+    <div class="presets">
+      <div class="controls">
+        <button id="preset-save" type="button">Salvar ajuste</button>
+        <button id="share" type="button">Copiar link</button>
+      </div>
+      <ul id="presets" aria-label="Ajustes salvos"></ul>
+    </div>
   </section>

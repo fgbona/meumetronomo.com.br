@@ -10,11 +10,11 @@ O **Meu Metrônomo** é um metrônomo online gratuito, em português, feito para
 
 ## Por que ele existe
 
-Quem estuda um instrumento precisa de um metrônomo todos os dias. Os aplicativos para celular costumam pedir instalação, permissões e assinatura para liberar funções básicas. Muitos metrônomos de sites são lentos, cheios de propaganda ou têm cliques imprecisos. O Meu Metrônomo nasceu para resolver isso com uma página leve, que carrega rápido, marca o tempo com precisão e tem só o que um músico usa de verdade: BPM, batidas por compasso, acento, subdivisões, Tap BPM e temporizador.
+Quem estuda um instrumento precisa de um metrônomo todos os dias. Os aplicativos para celular costumam pedir instalação, permissões e assinatura para liberar funções básicas. Muitos metrônomos de sites são lentos, cheios de propaganda ou têm cliques imprecisos. O Meu Metrônomo nasceu para resolver isso com uma página leve, que carrega rápido, marca o tempo com precisão e tem só o que um músico usa de verdade: BPM, batidas por compasso, acento, subdivisões, Tap BPM, temporizador, trainer de velocidade e compassos mudos. Com o tempo, o site ganhou outras [ferramentas](/ferramentas/) que o músico precisa na mesma sessão: afinador, diapasão, calculadora de delay, conversor de compassos, treino de ritmo e treino de ouvido.
 
 ## Como ele funciona
 
-O metrônomo roda inteiramente no seu navegador. Os cliques são gerados pela **Web Audio API**, agendados pelo relógio de áudio do próprio navegador, que é muito mais preciso do que os temporizadores comuns de JavaScript. Por isso o pulso não oscila mesmo quando a página fica aberta por muito tempo. Nenhum dado sai do seu dispositivo: a única informação guardada é a preferência de tema claro ou escuro.
+O metrônomo roda inteiramente no seu navegador. Os cliques são gerados pela **Web Audio API**, agendados pelo relógio de áudio do próprio navegador, que é muito mais preciso do que os temporizadores comuns de JavaScript. Por isso o pulso não oscila mesmo quando a página fica aberta por muito tempo. Nenhum dado sai do seu dispositivo: as únicas informações guardadas, no armazenamento local do navegador, são a preferência de tema e os ajustes e presets do metrônomo. O afinador analisa o som do microfone no próprio aparelho, sem gravar nem enviar nada.
 
 O site é gerado com o [Hugo](https://gohugo.io/) e o código-fonte é aberto, disponível em [github.com/fgbona/meumetronomo.com.br](https://github.com/fgbona/meumetronomo.com.br). Sugestões, correções e relatos de problemas são bem-vindos por lá.
 

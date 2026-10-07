@@ -1,6 +1,6 @@
 ---
 title: Metrônomo Online
-lead: Defina o BPM, escolha o número de batidas por compasso e clique em Iniciar. Opcionalmente, use o Tap BPM, subdivisões e o temporizador.
+lead: Defina o BPM, escolha o número de batidas por compasso e clique em Iniciar. Opcionalmente, use o Tap BPM, subdivisões, temporizador, trainer de velocidade e compassos mudos.
 sitemap:
   priority: 1.0
 faq:
@@ -15,7 +15,13 @@ faq:
   - q: "Qual BPM devo usar para estudar?"
     a: "Comece devagar o suficiente para tocar a passagem sem erros, normalmente entre 50% e 70% do andamento final, e suba de 4 a 5 BPM por vez. Veja o artigo [Como estudar com metrônomo](/como-estudar-com-metronomo/)."
   - q: "Quais atalhos de teclado existem?"
-    a: "Espaço inicia e para. As setas para cima e para baixo (ou esquerda e direita) mudam o BPM de 1 em 1."
+    a: "Espaço inicia e para. As setas para cima e para baixo (ou esquerda e direita) mudam o BPM de 1 em 1. A tecla T marca o Tap BPM."
+  - q: "O que é o trainer de velocidade?"
+    a: "Em 'Mais opções', o trainer sobe o BPM sozinho: por exemplo, 4 BPM a cada 4 compassos até chegar a 120. É o método de progressão descrito no artigo Como estudar com metrônomo, sem precisar parar para ajustar."
+  - q: "O que são os compassos mudos?"
+    a: "O metrônomo toca alguns compassos e silencia outros, mantendo a contagem. Você continua tocando no silêncio e, quando o clique volta, descobre se acelerou ou atrasou. É o exercício mais eficiente para desenvolver o tempo interno."
+  - q: "O site lembra meus ajustes?"
+    a: "Sim. BPM, batidas, subdivisão, som e flash ficam salvos no navegador e voltam na próxima visita. Com 'Salvar ajuste' você guarda vários presets com nome, um para cada música ou exercício, e com 'Copiar link' compartilha a configuração atual."
   - q: "Por que o clique ficou irregular?"
     a: "O metrônomo usa o relógio de áudio do navegador, que é preciso. Irregularidade costuma vir de outra aba pesada, economia de bateria no celular ou fones Bluetooth com latência variável. Feche outras abas ou use fones com fio."
   - q: "Posso abrir o metrônomo já em um BPM específico?"
@@ -36,8 +42,12 @@ faq:
 - **Tap BPM.** Toque no ritmo e o metrônomo calcula o andamento a partir da média dos últimos toques. Serve para descobrir o BPM de uma música ou para marcar o andamento de uma banda antes de contar a entrada.
 - **Temporizador.** Define quantos minutos o metrônomo toca antes de parar sozinho. Bom para sessões de estudo com tempo marcado e para estudar sem olhar para a tela.
 - **Indicador visual.** As batidas acendem na tela em sincronia com o som. Ajuda quem toca instrumentos altos, como bateria, e quem estuda com o volume baixo.
+- **Trainer de velocidade.** Sobe (ou desce) o BPM automaticamente a cada N compassos até o andamento final. Configure em "Mais opções".
+- **Compassos mudos.** Toca alguns compassos e silencia outros, mantendo a contagem, para treinar o tempo interno.
+- **Quatro sons de clique.** Bipe, madeira, clave e tique mecânico. O flash visual acende a tela inteira na batida, útil em tela cheia.
+- **Ajustes salvos e presets.** O último ajuste volta na próxima visita. Salve presets com nome para cada música e compartilhe a configuração por link.
 - **Tema claro e escuro.** A escolha fica salva no navegador.
-- **Atalhos de teclado.** Espaço inicia e para; as setas ajustam o BPM.
+- **Atalhos de teclado.** Espaço inicia e para; as setas ajustam o BPM; T marca o Tap BPM.
 
 ## Para que serve um metrônomo?
 

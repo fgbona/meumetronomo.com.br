@@ -1,7 +1,18 @@
+{{ define "head" }}
+{{- with .Params.faq }}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Article","headline":{{ $.Title | jsonify }},"description":{{ $.Description | jsonify }},"url":"{{ $.Permalink }}","inLanguage":"pt-BR","isPartOf":{"@id":"{{ site.BaseURL }}#website"}}
+ {{- partial "faq-schema.html" $ | safeJS }}
+]}
+</script>
+{{- end }}
+{{ end }}
 {{ define "main" }}
 <article class="text">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
+  {{ partial "faq.html" . }}
   {{- if eq .Type "artigo" }}
   <p><a href="/">← Abrir o metrônomo online</a></p>
   {{- end }}

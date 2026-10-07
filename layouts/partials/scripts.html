@@ -1,0 +1,5 @@
+{{- /* Concatena, minifica e fingerprinta os JS de assets/. Uso: {{ partial "scripts.html" (slice "js/theme.js" "js/app.js") }} */ -}}
+{{- $files := slice }}
+{{- range . }}{{ $files = $files | append (resources.Get .) }}{{ end }}
+{{- $js := $files | resources.Concat (printf "js/%s.js" (index . (sub (len .) 1) | path.BaseName)) | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}"></script>

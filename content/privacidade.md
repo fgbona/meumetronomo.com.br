@@ -10,7 +10,11 @@ O **Meu Metrônomo** é uma ferramenta gratuita que roda inteiramente no seu nav
 
 ## Preferências no navegador
 
-Guardamos apenas a sua escolha de tema (claro ou escuro) no armazenamento local do navegador. Essa informação não sai do seu dispositivo.
+Guardamos no armazenamento local do navegador (localStorage) apenas preferências de uso: a escolha de tema (claro ou escuro), os últimos ajustes do metrônomo (BPM, batidas, subdivisão, som) e os presets que você salvar com nome. Essas informações não saem do seu dispositivo e podem ser apagadas limpando os dados do site no navegador.
+
+## Microfone
+
+O [afinador](/afinador/) pede acesso ao microfone para identificar a nota tocada. O áudio é analisado em tempo real dentro do seu navegador e nunca é gravado, armazenado ou enviado a servidores. O acesso termina quando você clica em "Parar" ou fecha a página.
 
 ## Anúncios (Google AdSense)
 

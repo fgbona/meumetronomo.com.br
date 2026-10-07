@@ -7,16 +7,17 @@
 
 <article class="text">
   {{ .Content }}
-  {{- with .Params.faq }}
-  <h2>Perguntas frequentes</h2>
-  {{- range . }}
-  <h3>{{ .q }}</h3>
-  <p>{{ .a | markdownify }}</p>
+  {{ partial "faq.html" . }}
+
+  <h2>Outras ferramentas para músicos</h2>
+  <ul class="tools">
+  {{- range where site.RegularPages "Type" "ferramenta" }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Description }}</li>
   {{- end }}
-  {{- end }}
+  </ul>
 
   <h2>Andamentos</h2>
-  <p>Não sabe qual BPM usar? Veja o <a href="/andamentos/">guia de andamentos musicais</a>, com a tabela de Largo a Presto e um link para abrir o metrônomo em cada velocidade.</p>
+  <p>Não sabe qual BPM usar? Veja o <a href="/andamentos/">guia de andamentos musicais</a>, com a tabela de Largo a Presto e um link para abrir o metrônomo em cada velocidade, e a <a href="/bpm-por-estilo/">tabela de BPM por estilo</a>.</p>
 
   <h2>Artigos</h2>
   <ul>

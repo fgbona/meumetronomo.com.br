@@ -1,0 +1,24 @@
+{{ define "head" }}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebApplication","name":"{{ .Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Description }}","isPartOf":{"@id":"{{ site.BaseURL }}#website"}}
+ {{- partial "faq-schema.html" . | safeJS }}
+]}
+</script>
+{{ end }}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<p class="lead">{{ .Params.lead }}</p>
+{{ partial (printf "tools/%s.html" .Params.tool) . }}
+
+{{ partial "ad.html" (dict "slot" site.Params.adsense.slotTop) }}
+
+<article class="text">
+  {{ .Content }}
+  {{ partial "faq.html" . }}
+  <p><a href="/ferramentas/">← Todas as ferramentas</a> · <a href="/">Metrônomo online</a></p>
+</article>
+
+{{ partial "ad.html" (dict "slot" site.Params.adsense.slotBottom) }}
+{{ end }}
+{{ define "scripts" }}{{ partial "scripts.html" (slice "js/theme.js" "js/tools.js") }}{{ end }}

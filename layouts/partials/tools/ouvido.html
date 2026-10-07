@@ -1,0 +1,17 @@
+<section class="card" id="ear">
+  <div class="form">
+    <label class="opt"><span>Modo</span>
+      <select id="ear-mode" aria-label="Modo"><option value="intervalos">Intervalos</option><option value="acordes">Acordes</option></select>
+    </label>
+    <label class="opt"><span>Nível</span>
+      <select id="ear-level" aria-label="Nível"><option value="basico">Básico (3ª, 4ª, 5ª, 8ª)</option><option value="medio">Médio (+ 2ª, 6ª, 7ª maiores)</option><option value="todos">Todos os intervalos</option></select>
+    </label>
+    <span>Acertos: <strong id="ear-score">0 / 0</strong></span>
+  </div>
+  <div class="controls">
+    <button id="ear-play" class="primary" type="button">Nova pergunta</button>
+    <button id="ear-repeat" type="button">Ouvir de novo</button>
+  </div>
+  <p class="status" id="ear-status">Clique em "Nova pergunta" e escolha a resposta.</p>
+  <div class="answers" id="ear-answers"></div>
+</section>
