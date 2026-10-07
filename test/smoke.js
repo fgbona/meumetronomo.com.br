@@ -187,6 +187,17 @@ console.log('ferramentas: ok');
   assert.equal(notes(), 'Lá Si Dó Ré Mi Fá Sol♯'); assert.equal(chords(), 'Lám Siº Dó+ Rém Mi Fá Sol♯º');
   $('scale-type').value = 'Pentatônica menor'; $('scale-type').dispatchEvent(new win.Event('change'));
   assert.equal(notes(), 'Lá Dó Ré Mi Sol'); assert.ok($('scale-chords-wrap').hidden);
+  // braço: Lá menor pentatônica no violão, 15 casas → 6 cordas × 16 posições × 5/12 notas ≈ 40 círculos, 5 shapes
+  const circles = () => $('fretboard').querySelectorAll('circle[r="10.5"]');
+  assert.ok(circles().length >= 38 && circles().length <= 42, `notas no braço: ${circles().length}`);
+  assert.equal($('fb-pos').options.length, 6, '5 shapes + todas');
+  assert.equal($('fretboard').querySelectorAll('circle[fill="var(--accent)"]').length, 8, 'tônicas Lá: 6 cordas × casas 5/17, 0/12, 7, 2/14, 10, 5 → 8');
+  $('fb-labels').value = 'degree'; $('fb-labels').dispatchEvent(new win.Event('change'));
+  assert.ok([...$('fretboard').querySelectorAll('text')].some((t) => t.textContent === '♭3'), 'rótulo de grau');
+  $('fb-pos').value = '5'; $('fb-pos').dispatchEvent(new win.Event('change'));
+  assert.equal($('fretboard').querySelectorAll('g[opacity="1"]').length, 12, 'shape 1 da pentatônica tem 12 notas (2 por corda)');
+  $('fb-tuning').value = '4,9,14,19'; $('fb-tuning').dispatchEvent(new win.Event('change'));
+  assert.equal($('fretboard').querySelectorAll('line[stroke="currentColor"]').length, 4, 'baixo: 4 cordas');
 }
 {
   const { $, win, AC, timers } = load('leitura-ritmica/index.html');

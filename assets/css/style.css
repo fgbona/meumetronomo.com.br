@@ -146,3 +146,6 @@ footer { text-align: center; color: var(--muted); padding: 16px; font-size: .9em
 .button { display: inline-block; padding: .6em 1.2em; border: 1px solid var(--line); border-radius: 8px; background: var(--card); text-decoration: none; cursor: pointer; }
 input[type=range] { accent-color: var(--accent); }
 @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+.fretboard { overflow-x: auto; margin: 8px 0 4px; padding-bottom: 4px; }
+.fretboard svg { display: block; margin: 0 auto; max-width: none; }
+.sub { font-size: 1.1em; margin: 24px 0 4px; text-align: center; }

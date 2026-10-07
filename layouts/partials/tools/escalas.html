@@ -10,4 +10,25 @@
     <p class="status">Acordes (tríades) de cada grau</p>
     <div class="pills" id="scale-chords"></div>
   </div>
+  <h2 class="sub">Braço do instrumento</h2>
+  <div class="form">
+    <label class="opt"><span>Afinação</span>
+      <select id="fb-tuning" aria-label="Afinação">
+        <option value="4,9,14,19,23,28">Violão / guitarra (E A D G B E)</option>
+        <option value="2,9,14,19,23,28">Guitarra drop D</option>
+        <option value="4,9,14,19,23,28,33">Guitarra 7 cordas</option>
+        <option value="4,9,14,19">Baixo 4 cordas</option>
+        <option value="-1,4,9,14,19">Baixo 5 cordas</option>
+        <option value="7,0,4,9">Ukulele (G C E A)</option>
+        <option value="14,19,23,26">Cavaquinho (D G B D)</option>
+      </select>
+    </label>
+    <label class="opt"><span>Mostrar</span>
+      <select id="fb-labels" aria-label="Rótulos"><option value="note">notas</option><option value="degree">graus</option></select>
+    </label>
+    <label class="opt"><span>Shape</span> <select id="fb-pos" aria-label="Posição"></select></label>
+    <label class="opt"><span>Casas</span> <input id="fb-frets" type="number" min="5" max="24" value="15" aria-label="Número de casas"></label>
+  </div>
+  <div class="fretboard" id="fretboard"></div>
+  <p class="status">Vermelho é a tônica. Com um shape escolhido, as notas fora da posição ficam apagadas.</p>
 </section>

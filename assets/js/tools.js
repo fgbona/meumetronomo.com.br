@@ -335,9 +335,42 @@
         $('scale-chords-wrap').hidden = false;
       } else $('scale-chords-wrap').hidden = true;
     }
+    // ---- Braço: cordas da mais aguda (topo) para a mais grave; shapes = janelas de 5 casas a partir de cada grau na corda mais grave
+    const tuning = $('fb-tuning'), labels = $('fb-labels'), posSel = $('fb-pos'), fretsIn = $('fb-frets'), board = $('fretboard');
+    const DEG = ['1', '♭2', '2', '♭3', '3', '4', '♭5', '5', '♭6', '6', '♭7', '7'];
+    function fretboard() {
+      const open = tuning.value.split(',').map(Number), nf = Math.min(24, Math.max(5, +fretsIn.value || 15));
+      const r = notes[0] % 12, inScale = new Map(notes.map((n, i) => [n % 12, i]));
+      const low = open[0], starts = notes.map((n) => ((n - low) % 12 + 12) % 12).sort((a, b) => a - b);
+      const span = notes.length <= 6 ? 3 : 4, prev = posSel.value; // pentatônica cabe em 4 casas; diatônica, em 5
+      posSel.innerHTML = '<option value="">todas as notas</option>' + starts.map((f, i) => `<option value="${f}">shape ${i + 1} (casa ${f}–${f + span})</option>`).join('');
+      if ([...posSel.options].some((o) => o.value === prev)) posSel.value = prev;
+      const win = posSel.value === '' ? null : [+posSel.value, +posSel.value + span];
+      const fw = 44, sh = 26, x0 = 34, y0 = 22, w = x0 + fw * (nf + 1), h = y0 + sh * open.length + 8;
+      let out = '';
+      for (let f = 1; f <= nf; f++) out += `<line x1="${x0 + fw * f}" y1="${y0}" x2="${x0 + fw * f}" y2="${y0 + sh * (open.length - 1)}" stroke="var(--line)"/>`;
+      out += `<rect x="${x0 - 3}" y="${y0 - 2}" width="5" height="${sh * (open.length - 1) + 4}" fill="currentColor"/>`;
+      [3, 5, 7, 9, 12, 15, 17, 19, 21, 24].filter((f) => f <= nf).forEach((f) => { const cx = x0 + fw * f - fw / 2, cy = y0 + sh * (open.length - 1) / 2; out += f % 12 ? `<circle cx="${cx}" cy="${cy}" r="4" fill="var(--line)"/>` : `<circle cx="${cx}" cy="${cy - 10}" r="4" fill="var(--line)"/><circle cx="${cx}" cy="${cy + 10}" r="4" fill="var(--line)"/>`; });
+      for (let f = 0; f <= nf; f++) if (f % 2 === 1 || f === 12) out += `<text x="${x0 + fw * f - (f ? fw / 2 : fw / 2 + 10)}" y="${h - 1}" font-size="10" text-anchor="middle" fill="var(--muted)">${f}</text>`;
+      [...open].reverse().forEach((o, si) => {
+        const y = y0 + sh * si;
+        out += `<line x1="${x0}" y1="${y}" x2="${w}" y2="${y}" stroke="currentColor" stroke-width="${1 + (open.length - 1 - si) * 0.3}" opacity=".6"/>`;
+        for (let f = 0; f <= nf; f++) {
+          const m = o + f, deg = inScale.get(((m % 12) + 12) % 12);
+          if (deg == null) continue;
+          const dim = win && (f < win[0] || f > win[1]);
+          const x = f ? x0 + fw * f - fw / 2 : x0 - 16, tonic = ((m % 12) + 12) % 12 === r;
+          const label = labels.value === 'degree' ? DEG[(((m - notes[0]) % 12) + 12) % 12] : NOTES[((m % 12) + 12) % 12];
+          out += `<g opacity="${dim ? 0.18 : 1}"><circle cx="${x}" cy="${y}" r="10.5" fill="${tonic ? 'var(--accent)' : 'var(--card)'}" stroke="${tonic ? 'var(--accent)' : 'currentColor'}" stroke-width="1.3"/><text x="${x}" y="${y + 3.5}" font-size="${label.length > 2 ? 8 : 9.5}" font-weight="700" text-anchor="middle" fill="${tonic ? 'var(--accent-fg)' : 'currentColor'}">${label}</text></g>`;
+        }
+      });
+      board.innerHTML = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Braço com as notas da escala">${out}</svg>`;
+    }
     $('scale-play').onclick = () => { audio(); const t = ctx.currentTime + 0.05; [...notes, notes[0] + 12].forEach((n, i) => tone(midiHz(48 + n), t + i * 0.4, 0.38)); };
-    [root, type].forEach((e) => (e.onchange = render));
-    render();
+    [root, type].forEach((e) => (e.onchange = () => { render(); fretboard(); }));
+    [tuning, labels, posSel].forEach((e) => (e.onchange = fretboard));
+    fretsIn.addEventListener('input', fretboard);
+    render(); fretboard();
   }
 
   // ---- Leitura rítmica ----
