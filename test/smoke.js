@@ -190,7 +190,10 @@ console.log('ferramentas: ok');
   // braço: Lá menor pentatônica no violão, 15 casas → 6 cordas × 16 posições × 5/12 notas ≈ 40 círculos, 5 shapes
   const circles = () => $('fretboard').querySelectorAll('circle[r="10.5"]');
   assert.ok(circles().length >= 38 && circles().length <= 42, `notas no braço: ${circles().length}`);
-  assert.equal($('fb-pos').options.length, 6, '5 shapes + todas');
+  assert.equal($('fb-pos').options.length, 9, '5 shapes na 1ª oitava + 3 acima da casa 12 que cabem em 15 casas, + todas');
+  $('fb-frets').value = 24; $('fb-frets').dispatchEvent(new win.Event('input'));
+  assert.ok([...$('fb-pos').options].some((o) => o.textContent.includes('casa 20–23')), 'shapes até a casa 24');
+  $('fb-frets').value = 15; $('fb-frets').dispatchEvent(new win.Event('input'));
   assert.equal($('fretboard').querySelectorAll('circle[fill="var(--accent)"]').length, 8, 'tônicas Lá: 6 cordas × casas 5/17, 0/12, 7, 2/14, 10, 5 → 8');
   $('fb-labels').value = 'degree'; $('fb-labels').dispatchEvent(new win.Event('change'));
   assert.ok([...$('fretboard').querySelectorAll('text')].some((t) => t.textContent === '♭3'), 'rótulo de grau');

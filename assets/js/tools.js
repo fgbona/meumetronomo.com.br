@@ -343,7 +343,8 @@
       const r = notes[0] % 12, inScale = new Map(notes.map((n, i) => [n % 12, i]));
       const low = open[0], starts = notes.map((n) => ((n - low) % 12 + 12) % 12).sort((a, b) => a - b);
       const span = notes.length <= 6 ? 3 : 4, prev = posSel.value; // pentatônica cabe em 4 casas; diatônica, em 5
-      posSel.innerHTML = '<option value="">todas as notas</option>' + starts.map((f, i) => `<option value="${f}">shape ${i + 1} (casa ${f}–${f + span})</option>`).join('');
+      const shapes = starts.flatMap((f, i) => [0, 12, 24].map((o) => [f + o, i + 1])).filter(([f]) => f + span <= nf).sort((a, b) => a[0] - b[0]); // repete os shapes a cada oitava
+      posSel.innerHTML = '<option value="">todas as notas</option>' + shapes.map(([f, i]) => `<option value="${f}">shape ${i} (casa ${f}–${f + span})</option>`).join('');
       if ([...posSel.options].some((o) => o.value === prev)) posSel.value = prev;
       const win = posSel.value === '' ? null : [+posSel.value, +posSel.value + span];
       const fw = 44, sh = 26, x0 = 34, y0 = 22, w = x0 + fw * (nf + 1), h = y0 + sh * open.length + 8;
