@@ -44,7 +44,7 @@ h1 { text-align: center; margin: 8px 0 4px; }
 .round { width: 56px; height: 56px; border-radius: 50%; font-size: 1.6em; padding: 0; }
 .bpm { text-align: center; min-width: 160px; }
 #bpm-value { display: block; font-size: 4.5em; font-weight: 900; line-height: 1; }
-.bpm-name { color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .85em; }
+.bpm-name { display: block; min-height: 1.4em; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-size: .85em; } /* min-height: reserva a linha que o JS preenche, evita CLS */
 #bpm { width: 100%; max-width: 520px; display: block; margin: 20px auto; accent-color: var(--accent); }
 
 .beats { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; min-height: 28px; margin: 8px 0 20px; }
