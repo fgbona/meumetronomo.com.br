@@ -1,6 +1,7 @@
 ---
 title: "O que é BPM? Como contar e descobrir o BPM de uma música"
-description: "BPM significa batidas por minuto. Entenda o que o número mede, como contar o BPM de qualquer música com um cronômetro ou com o Tap BPM, e por que a mesma música pode ter dois BPMs."
+date: 2026-10-05T15:23:45-03:00
+description: "BPM significa batidas por minuto. Entenda o que o número mede, como contar o BPM de uma música com cronômetro ou Tap BPM e por que ela pode ter dois BPMs."
 type: artigo
 ---
 

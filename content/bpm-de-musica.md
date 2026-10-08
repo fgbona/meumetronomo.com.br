@@ -1,6 +1,7 @@
 ---
 title: "Descobrir o BPM de uma música: analisador de arquivo de áudio"
-description: "Envie um MP3, WAV ou outro arquivo de áudio e descubra o BPM da música. A análise roda no navegador, sem upload. Mostra o andamento estimado, alternativas em metade e dobro e abre o metrônomo no BPM encontrado."
+date: 2026-10-07T20:28:35-03:00
+description: "Envie um MP3 ou WAV e descubra o BPM da música. A análise roda no navegador, sem upload, e abre o metrônomo no andamento encontrado."
 lead: Escolha um arquivo de áudio do seu aparelho. A análise acontece no navegador, em segundos, e nada é enviado.
 type: ferramenta
 weight: 120

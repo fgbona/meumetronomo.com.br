@@ -1,5 +1,6 @@
 ---
 title: "Treino de ritmo: teste sua precisão com o metrônomo"
+date: 2026-10-07T20:14:37-03:00
 description: "Bata junto com o clique e veja o desvio de cada toque em milissegundos: se você atrasa, adianta ou oscila. Com modo silencioso para testar o tempo interno."
 lead: Inicie, bata na tecla Espaço (ou no botão) junto com cada clique e acompanhe o desvio. Valores positivos são toques atrasados; negativos, adiantados.
 type: ferramenta

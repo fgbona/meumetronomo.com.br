@@ -1,6 +1,7 @@
 ---
 title: "Calculadora de delay: BPM em milissegundos"
-description: "Converte BPM em milissegundos para cada figura musical (semínima, colcheia, semicolcheia, pontuada, tercina) e em Hz para LFO. Para delay, reverb, compressor e sidechain sincronizados com a música."
+date: 2026-10-07T20:14:37-03:00
+description: "Converte BPM em milissegundos para cada figura (semínima, colcheia, pontuada, tercina) e em Hz para LFO. Para delay, reverb e compressor sincronizados."
 lead: Digite o BPM da música. A tabela mostra o tempo de cada figura em milissegundos e a frequência correspondente para LFO.
 type: ferramenta
 weight: 100

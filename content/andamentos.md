@@ -1,6 +1,7 @@
 ---
 title: "Andamentos musicais: tabela de BPM e guia por velocidade"
-description: "Tabela de andamentos (Largo, Adagio, Andante, Allegro, Presto) com faixas de BPM e um guia de 40 a 200 BPM: o que cada velocidade significa, em que estilos aparece e como estudar nela."
+date: 2026-10-05T15:23:45-03:00
+description: "Tabela de andamentos (Largo, Adagio, Andante, Allegro, Presto) com faixas de BPM e guia de 40 a 200 BPM: o que cada velocidade significa e como estudar nela."
 type: artigo
 aliases: [/40-bpm/, /50-bpm/, /60-bpm/, /70-bpm/, /80-bpm/, /90-bpm/, /100-bpm/, /110-bpm/, /120-bpm/, /130-bpm/, /140-bpm/, /150-bpm/, /160-bpm/, /170-bpm/, /180-bpm/, /200-bpm/]
 sitemap:

@@ -1,5 +1,6 @@
 ---
 title: "Treino de ouvido: intervalos e acordes"
+date: 2026-10-07T20:14:37-03:00
 description: "Exercício de percepção musical grátis: ouça um intervalo ou um acorde e identifique qual é. Três níveis de dificuldade, pontuação e repetição ilimitada."
 lead: Clique em "Nova pergunta", ouça e escolha a resposta. O site diz se acertou e mostra a resposta certa.
 type: ferramenta

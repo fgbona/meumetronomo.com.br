@@ -1,5 +1,6 @@
 ---
 title: Metrônomo para violão
+date: 2026-10-05T11:08:14-03:00
 description: Como usar o metrônomo no violão para trocar acordes no tempo, estudar dedilhados, levadas de samba, bossa nova e sertanejo, escalas e palhetada.
 type: artigo
 ---

@@ -1,5 +1,6 @@
 ---
 title: Metrônomo Online
+date: 2026-10-05T10:41:49-03:00
 lead: Defina o BPM, escolha o número de batidas por compasso e clique em Iniciar. Opcionalmente, use o Tap BPM, subdivisões, temporizador, trainer de velocidade e compassos mudos.
 sitemap:
   priority: 1.0

@@ -1,0 +1,7 @@
+{{- /* BreadcrumbList: Início › (Ferramentas ›) página atual */ -}}
+{{- $items := slice (dict "name" "Início" "item" site.BaseURL) -}}
+{{- if eq .Type "ferramenta" }}{{ $items = $items | append (dict "name" "Ferramentas" "item" ("/ferramentas/" | absURL)) }}{{ end -}}
+{{- $items = $items | append (dict "name" .Title "item" .Permalink) -}}
+{"@type":"BreadcrumbList","itemListElement":[
+{{- range $i, $it := $items }}{{ if $i }},{{ end }}{"@type":"ListItem","position":{{ add $i 1 }},"name":{{ $it.name | jsonify }},"item":"{{ $it.item }}"}{{ end -}}
+]}

@@ -1,6 +1,7 @@
 ---
 title: "Drone de afinação: nota pedal contínua para estudar"
-description: "Nota contínua com harmônicos, como uma tanpura, para estudar afinação em cordas, sopros e canto. Escolha a nota, a oitava, acrescente a quinta e ajuste o timbre."
+date: 2026-10-07T20:28:35-03:00
+description: "Nota contínua com harmônicos, como uma tanpura, para estudar afinação em cordas, sopros e canto. Escolha a nota, a oitava, a quinta e o timbre."
 lead: Escolha a nota e clique em Tocar. O som fica contínuo até você parar. Toque escalas, arpejos e melodias por cima e ouça a afinação contra a referência.
 type: ferramenta
 weight: 30

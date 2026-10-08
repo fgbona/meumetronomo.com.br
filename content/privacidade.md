@@ -1,5 +1,6 @@
 ---
 title: Política de Privacidade
+date: 2026-10-05T10:41:49-03:00
 description: Como o meumetronomo.com.br trata dados, cookies e anúncios.
 sitemap:
   priority: 0.3

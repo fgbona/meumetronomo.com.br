@@ -1,6 +1,7 @@
 ---
 title: "Conversor de compassos em minutos (e minutos em compassos)"
-description: "Calcule quanto tempo duram N compassos em um BPM, ou quantos compassos cabem em uma duração. Para arranjar, gravar, montar setlist e sincronizar música com vídeo."
+date: 2026-10-07T20:14:37-03:00
+description: "Calcule quanto tempo duram N compassos em um BPM, ou quantos compassos cabem em uma duração. Para arranjar, gravar e sincronizar música com vídeo."
 lead: Informe o BPM e o número de batidas por compasso. Depois, converta compassos em duração ou duração em compassos.
 type: ferramenta
 weight: 110

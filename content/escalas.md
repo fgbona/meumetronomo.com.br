@@ -1,6 +1,7 @@
 ---
 title: "Escalas musicais: notas, fórmulas e acordes de cada tom"
-description: "Monte qualquer escala em qualquer tônica: maior, menor natural, harmônica e melódica, modos gregos, pentatônicas, blues, tons inteiros e diminuta. Mostra as notas, a fórmula, os acordes de cada grau, toca a escala e desenha o braço da guitarra, do baixo ou do ukulele com todas as notas e os shapes."
+date: 2026-10-07T20:28:35-03:00
+description: "Monte qualquer escala em qualquer tônica: maior, menores, modos gregos, pentatônicas, blues e mais. Notas, fórmula, acordes de cada grau e braço com shapes."
 lead: Escolha a tônica e o tipo de escala. O site mostra as notas, a fórmula, os acordes de cada grau, toca a escala e desenha o braço do instrumento com as notas e os shapes.
 type: ferramenta
 weight: 50

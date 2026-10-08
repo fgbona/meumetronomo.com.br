@@ -1,5 +1,6 @@
 ---
 title: Sobre o Meu Metrônomo
+date: 2026-10-05T15:23:45-03:00
 description: O que é o Meu Metrônomo, por que ele existe, como funciona por dentro e como entrar em contato.
 sitemap:
   priority: 0.4

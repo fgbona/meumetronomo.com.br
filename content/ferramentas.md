@@ -1,6 +1,7 @@
 ---
 title: "Ferramentas online para músicos"
-description: "Metrônomo, afinador, diapasão, drone, transpositor de cifras, escalas, polirritmia, leitura rítmica, calculadora de delay, conversor de compassos, BPM de música, treino de ritmo e de ouvido. Grátis, sem cadastro, no navegador."
+date: 2026-10-07T20:14:37-03:00
+description: "Metrônomo, afinador, diapasão, drone, transpositor de cifras, escalas, polirritmia, leitura rítmica, calculadora de delay e treino de ouvido. Grátis."
 sitemap:
   priority: 0.7
 ---

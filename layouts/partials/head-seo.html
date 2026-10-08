@@ -1,5 +1,5 @@
 {{- $desc := .Description | default site.Params.description -}}
-{{- $title := cond .IsHome (printf "%s - Metrônomo Online Grátis" site.Title) (printf "%s - %s" .Title site.Title) -}}
+{{- $title := cond .IsHome (printf "Metrônomo Online Grátis - %s" site.Title) (printf "%s - %s" .Title site.Title) -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
@@ -7,7 +7,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ cond (eq .Type "artigo") "article" "website" }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $desc }}">

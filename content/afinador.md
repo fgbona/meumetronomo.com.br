@@ -1,6 +1,7 @@
 ---
 title: "Afinador online cromático pelo microfone"
-description: "Afinador online grátis para violão, guitarra, baixo, ukulele, violino e voz. Usa o microfone do celular ou computador, mostra a nota, o desvio em cents e permite trocar o Lá de referência."
+date: 2026-10-07T20:14:37-03:00
+description: "Afinador online grátis para violão, guitarra, baixo, ukulele, violino e voz. Usa o microfone, mostra a nota e o desvio em cents, com Lá de referência ajustável."
 lead: Ative o microfone, toque uma nota só e deixe soar. O ponteiro mostra se ela está baixa (♭) ou alta (♯).
 type: ferramenta
 weight: 10

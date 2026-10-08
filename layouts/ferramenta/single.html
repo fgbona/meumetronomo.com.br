@@ -1,7 +1,9 @@
 {{ define "head" }}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"WebApplication","name":"{{ .Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Description }}","isPartOf":{"@id":"{{ site.BaseURL }}#website"}}
+ {{ partial "org-schema.html" . | safeJS }},
+ {{ partial "breadcrumb-schema.html" . | safeJS }},
+ {"@type":"WebApplication","name":"{{ .Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ .Description }}","dateModified":"{{ .Lastmod.Format "2006-01-02" }}","publisher":{"@id":"{{ site.BaseURL }}#org"},"isPartOf":{"@id":"{{ site.BaseURL }}#website"}}
  {{- partial "faq-schema.html" . | safeJS }}
 ]}
 </script>

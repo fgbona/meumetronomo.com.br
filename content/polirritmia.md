@@ -1,6 +1,7 @@
 ---
 title: "Metrônomo de polirritmia: 3 contra 2, 4 contra 3 e mais"
-description: "Metrônomo com duas vozes para estudar polirritmias: 3:2, 4:3, 5:4, 7:4 ou qualquer combinação até 12. Sons e indicadores visuais separados, com opção de silenciar cada voz."
+date: 2026-10-07T20:28:35-03:00
+description: "Metrônomo com duas vozes para estudar polirritmias: 3:2, 4:3, 5:4, 7:4 ou qualquer combinação até 12. Indicadores separados e opção de silenciar cada voz."
 lead: Escolha quantos pulsos cada voz toca no mesmo intervalo de tempo. A voz A é aguda; a B, grave. Silencie uma delas para tocá-la você mesmo.
 type: ferramenta
 weight: 60

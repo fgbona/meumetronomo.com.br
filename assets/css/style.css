@@ -149,3 +149,4 @@ input[type=range] { accent-color: var(--accent); }
 .fretboard { overflow-x: auto; margin: 8px 0 4px; padding-bottom: 4px; }
 .fretboard svg { display: block; margin: 0 auto; max-width: none; }
 .sub { font-size: 1.1em; margin: 24px 0 4px; text-align: center; }
+.meta { color: var(--muted); font-size: .9em; margin-top: -8px; }

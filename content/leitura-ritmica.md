@@ -1,6 +1,7 @@
 ---
 title: "Leitura rítmica: exercícios aleatórios para solfejo"
-description: "Gerador de exercícios de leitura rítmica com figuras musicais: semínimas, colcheias, tercinas, semicolcheias, pontuadas e pausas. Quatro níveis, contagem de entrada, clique do metrônomo e opção de ouvir a resposta."
+date: 2026-10-07T20:28:35-03:00
+description: "Gerador de exercícios de leitura rítmica com semínimas, colcheias, tercinas, semicolcheias e pausas. Quatro níveis, clique do metrônomo e resposta em áudio."
 lead: "Clique em 'Novo exercício' para sortear compassos. Depois clique em 'Tocar': há um compasso de contagem e o clique acompanha enquanto a figura atual acende. Bata palmas ou solfeje o ritmo."
 type: ferramenta
 weight: 70

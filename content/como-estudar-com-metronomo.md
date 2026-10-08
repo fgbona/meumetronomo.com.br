@@ -1,5 +1,6 @@
 ---
 title: Como estudar com metrônomo
+date: 2026-10-05T11:08:14-03:00
 description: Método prático para usar o metrônomo nos estudos, com progressão de BPM, subdivisões, rotina de 15 minutos e erros comuns.
 type: artigo
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Tabela de BPM por estilo musical"
-description: "BPM típico de cada gênero: samba, bossa nova, forró, sertanejo, funk, pagode, axé, rock, pop, hip-hop, house, techno, drum and bass, valsa, baião e mais. Com link para abrir o metrônomo em cada velocidade."
+date: 2026-10-07T20:14:37-03:00
+description: "BPM típico de cada gênero: samba, bossa nova, forró, sertanejo, funk, pagode, rock, pop, house, techno e mais, com link para o metrônomo em cada velocidade."
 type: artigo
 faq:
   - q: "Qual é o BPM do samba?"

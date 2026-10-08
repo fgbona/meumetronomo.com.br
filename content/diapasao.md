@@ -1,5 +1,6 @@
 ---
 title: "Diapasão online e gerador de tom"
+date: 2026-10-07T20:14:37-03:00
 description: "Diapasão online com as 12 notas em qualquer oitava, Lá de referência ajustável (440, 442, 432 Hz), quatro timbres e um gerador de frequência livre em Hz."
 lead: Clique em uma nota para ouvi-la. Clique de novo para parar. Use para afinar de ouvido, aquecer a voz ou testar o ouvido.
 type: ferramenta

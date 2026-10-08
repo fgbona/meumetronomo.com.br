@@ -1,6 +1,7 @@
 ---
 title: "Transpositor de acordes e cifras online"
-description: "Cole a cifra, escolha quantos semitons subir ou descer e receba a cifra transposta na hora. Reconhece acordes com baixo invertido, sétimas e extensões. Serve para capotraste e para mudar o tom para a sua voz."
+date: 2026-10-07T20:28:35-03:00
+description: "Cole a cifra, escolha quantos semitons subir ou descer e receba a cifra transposta. Reconhece baixo invertido, sétimas e extensões. Para capotraste e voz."
 lead: Cole a cifra à esquerda e escolha quantos semitons transpor. As linhas de letra ficam como estão; só os acordes mudam.
 type: ferramenta
 weight: 40

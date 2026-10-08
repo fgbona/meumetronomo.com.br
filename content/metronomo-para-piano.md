@@ -1,5 +1,6 @@
 ---
 title: Metrônomo para piano
+date: 2026-10-05T15:23:45-03:00
 description: Como usar o metrônomo no piano e no teclado para escalas, mãos separadas, passagens difíceis, leitura e para desenvolver o rubato sem perder o tempo.
 type: artigo
 ---

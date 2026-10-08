@@ -1,5 +1,6 @@
 ---
 title: Metrônomo para bateria
+date: 2026-10-05T11:08:14-03:00
 description: Como usar o metrônomo na bateria para rudimentos, independência, viradas, BPM por estilo e para tocar com clique ao vivo e em gravações.
 type: artigo
 ---
