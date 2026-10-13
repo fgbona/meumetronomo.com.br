@@ -1,5 +1,7 @@
+{{- /* data-lang/data-alt: usados por assets/js/lang.js (seleção automática de idioma) e pelo link #lang */ -}}
+{{- $alt := "" }}{{ range .Translations }}{{ $alt = .RelPermalink }}{{ end -}}
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.Language.Locale }}" data-lang="{{ .Language.Lang }}"{{ with $alt }} data-alt="{{ . }}"{{ end }}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,13 +10,13 @@
 </head>
 <body>
 <header class="top">
-  <a class="logo" href="/">{{ .Site.Title }}</a>
+  <a class="logo" href="{{ site.Home.RelPermalink }}">{{ .Site.Title }}</a>
   {{ partial "header-actions.html" . }}
 </header>
 <main>
 {{ block "main" . }}{{ end }}
 </main>
-<footer>© {{ now.Year }} meumetronomo.com.br · <a href="/">Metrônomo</a> · <a href="/ferramentas/">Ferramentas</a> · <a href="/andamentos/">Andamentos</a> · <a href="/como-estudar-com-metronomo/">Como estudar</a> · <a href="/sobre/">Sobre</a> · <a href="/privacidade/">Privacidade</a></footer>
+<footer>© {{ now.Year }} meumetronomo.com.br · <a href="{{ site.Home.RelPermalink }}">{{ i18n "metronome" }}</a>{{ with site.GetPage "ferramentas" }} · <a href="{{ .RelPermalink }}">{{ i18n "tools" }}</a>{{ end }}{{ with site.GetPage "andamentos" }} · <a href="{{ .RelPermalink }}">{{ i18n "tempo_markings" }}</a>{{ end }}{{ with site.GetPage "como-estudar-com-metronomo" }} · <a href="{{ .RelPermalink }}">{{ i18n "footer_how_to_practice" }}</a>{{ end }}{{ with site.GetPage "sobre" }} · <a href="{{ .RelPermalink }}">{{ i18n "footer_about" }}</a>{{ end }}{{ with site.GetPage "privacidade" }} · <a href="{{ .RelPermalink }}">{{ i18n "footer_privacy" }}</a>{{ end }}</footer>
 {{ block "scripts" . }}{{ partial "scripts.html" (slice "js/theme.js") }}{{ end }}
 </body>
 </html>

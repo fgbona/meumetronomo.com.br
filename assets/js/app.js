@@ -1,5 +1,6 @@
 (() => {
   const $ = (id) => document.getElementById(id);
+  const T = JSON.parse($('i18n').textContent); // textos traduzidos (partial metronome.html)
   const NAMES = [[240, 'Prestissimo'], [177, 'Presto'], [140, 'Vivace'], [132, 'Allegro'], [109, 'Allegretto'], [97, 'Moderato'], [85, 'Andante'], [70, 'Adagietto'], [60, 'Adagio'], [50, 'Largo'], [45, 'Lento'], [25, 'Grave'], [0, 'Larghissimo']];
   const MIN = 1, MAX = 240;
   // Sons sintetizados: f = frequência [acento, batida, subdivisão], d = decaimento (s), noise = ruído filtrado junto
@@ -57,7 +58,7 @@
 
   const { PATTERNS, FIGURES, figure } = window.MMFIG;
   $('subdivisions').innerHTML = PATTERNS.slice(0, 11).map((p, i) =>
-    `<label title="${FIGURES[i].name}"><input type="radio" name="sub" value="${i}" aria-label="${FIGURES[i].name}"${i === 0 ? ' checked' : ''}>${figure(FIGURES[i])}</label>`
+    `<label title="${T.figures[i]}"><input type="radio" name="sub" value="${i}" aria-label="${T.figures[i]}"${i === 0 ? ' checked' : ''}>${figure(FIGURES[i])}</label>`
   ).join('');
   $('subdivisions').addEventListener('change', (e) => setSub(e.target.value));
 
@@ -132,7 +133,7 @@
     tickTimer = setInterval(schedule, 25);
     if ($('timer').checked) stopTimer = setTimeout(stop, (+$('timer-min').value || 1) * 60000);
     state.running = true;
-    startBtn.textContent = 'Parar';
+    startBtn.textContent = T.stop;
     startBtn.classList.add('running');
   }
   function stop() {
@@ -140,7 +141,7 @@
     state.running = false;
     flash(-1);
     beatsEl.classList.remove('silent');
-    startBtn.textContent = 'Iniciar';
+    startBtn.textContent = T.start;
     startBtn.classList.remove('running');
   }
   startBtn.onclick = () => (state.running ? stop() : start());
@@ -184,7 +185,7 @@
   let presets = load('presets', []);
   function renderPresets() {
     $('presets').innerHTML = presets.map((p, i) =>
-      `<li><button type="button" data-i="${i}">${p.name.replace(/[<>&"]/g, (c) => `&#${c.charCodeAt(0)};`)} <small>${p.bpm} BPM · ${p.beats} bat.</small></button><button type="button" class="del" data-del="${i}" aria-label="Apagar ${p.name.replace(/"/g, '&quot;')}">×</button></li>`
+      `<li><button type="button" data-i="${i}">${p.name.replace(/[<>&"]/g, (c) => `&#${c.charCodeAt(0)};`)} <small>${p.bpm} BPM · ${p.beats} ${T.beatsAbbr}</small></button><button type="button" class="del" data-del="${i}" aria-label="${T.presetDelete} ${p.name.replace(/"/g, '&quot;')}">×</button></li>`
     ).join('');
   }
   $('presets').onclick = (e) => {
@@ -193,7 +194,7 @@
     else apply(presets[+b.dataset.i]);
   };
   $('preset-save').onclick = () => {
-    const name = (prompt('Nome da música ou exercício:', `${state.bpm} BPM`) || '').trim().slice(0, 40);
+    const name = (prompt(T.presetName, `${state.bpm} BPM`) || '').trim().slice(0, 40);
     if (!name) return;
     presets = presets.filter((p) => p.name !== name).concat({ name, bpm: state.bpm, beats: state.beats, sub: state.sub, accent: state.accent }).slice(-30);
     store('presets', presets); renderPresets();
@@ -202,9 +203,9 @@
     const q = new URLSearchParams({ bpm: state.bpm, beats: state.beats });
     if (state.sub) q.set('sub', state.sub);
     if (!state.accent) q.set('accent', 0);
-    const url = `${location.origin}/?${q}`;
-    try { await navigator.clipboard.writeText(url); $('share').textContent = 'Link copiado!'; setTimeout(() => ($('share').textContent = 'Copiar link'), 1500); }
-    catch { prompt('Copie o link:', url); }
+    const url = `${location.origin}${location.pathname}?${q}`;
+    try { await navigator.clipboard.writeText(url); $('share').textContent = T.shareDone; setTimeout(() => ($('share').textContent = T.share), 1500); }
+    catch { prompt(T.sharePrompt, url); }
   };
   renderPresets();
 

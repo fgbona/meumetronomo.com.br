@@ -2,8 +2,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
  {{ partial "org-schema.html" . | safeJS }},
- {"@type":"WebSite","@id":"{{ .Permalink }}#website","url":"{{ .Permalink }}","name":"{{ site.Title }}","inLanguage":"pt-BR","publisher":{"@id":"{{ site.BaseURL }}#org"}},
- {"@type":"WebApplication","name":"{{ site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"pt-BR","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ site.Params.description }}"}
+ {"@type":"WebSite","@id":"{{ .Permalink }}#website","url":"{{ .Permalink }}","name":"{{ site.Title }}","inLanguage":"{{ .Language.Locale }}","publisher":{"@id":"{{ site.BaseURL }}#org"}},
+ {"@type":"WebApplication","name":"{{ site.Title }}","url":"{{ .Permalink }}","applicationCategory":"MusicApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","inLanguage":"{{ .Language.Locale }}","isAccessibleForFree":true,"image":"{{ "og.png" | absURL }}","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"description":"{{ site.Params.description }}"}
  {{- partial "faq-schema.html" . | safeJS }}
 ]}
 </script>

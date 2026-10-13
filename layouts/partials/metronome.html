@@ -1,78 +1,81 @@
   <section class="metronome" id="metronome" data-bpm="{{ .bpm }}">
     <div class="tempo">
-      <button class="round" id="bpm-dec" type="button" aria-label="Diminuir BPM">−</button>
+      <button class="round" id="bpm-dec" type="button" aria-label="{{ i18n "bpm_dec" }}">−</button>
       <div class="bpm">
         <output id="bpm-value" for="bpm">{{ .bpm }}</output>
         <span id="bpm-name" class="bpm-name"></span>
       </div>
-      <button class="round" id="bpm-inc" type="button" aria-label="Aumentar BPM">+</button>
+      <button class="round" id="bpm-inc" type="button" aria-label="{{ i18n "bpm_inc" }}">+</button>
     </div>
     <input id="bpm" type="range" min="1" max="240" value="{{ .bpm }}" aria-label="BPM">
 
     <div class="beats" id="beats" aria-hidden="true"></div>
 
     <div class="controls">
-      <button id="start" class="primary" type="button">Iniciar</button>
-      <button id="tap" type="button">Tap BPM</button>
+      <button id="start" class="primary" type="button">{{ i18n "start" }}</button>
+      <button id="tap" type="button">{{ i18n "tap" }}</button>
     </div>
 
     <div class="options">
       <label class="opt">
-        <span>Batidas</span>
+        <span>{{ i18n "beats" }}</span>
         <span class="stepper">
-          <button id="beats-dec" type="button" aria-label="Menos batidas">−</button>
-          <input id="beats-count" type="number" min="1" max="12" value="4" aria-label="Batidas por compasso">
-          <button id="beats-inc" type="button" aria-label="Mais batidas">+</button>
+          <button id="beats-dec" type="button" aria-label="{{ i18n "beats_less" }}">−</button>
+          <input id="beats-count" type="number" min="1" max="12" value="4" aria-label="{{ i18n "beats_per_bar" }}">
+          <button id="beats-inc" type="button" aria-label="{{ i18n "beats_more" }}">+</button>
         </span>
       </label>
-      <label class="opt"><input id="accent" type="checkbox" checked> <span>Acentuar primeira batida</span></label>
+      <label class="opt"><input id="accent" type="checkbox" checked> <span>{{ i18n "accent" }}</span></label>
       <label class="opt">
-        <input id="timer" type="checkbox"> <span>Temporizador</span>
-        <input id="timer-min" type="number" min="1" max="120" value="5" aria-label="Minutos" disabled> <span>min</span>
+        <input id="timer" type="checkbox"> <span>{{ i18n "timer" }}</span>
+        <input id="timer-min" type="number" min="1" max="120" value="5" aria-label="{{ i18n "minutes" }}" disabled> <span>{{ i18n "min" }}</span>
       </label>
     </div>
 
     <fieldset class="subdivisions">
-      <legend>Subdivisões</legend>
+      <legend>{{ i18n "subdivisions" }}</legend>
       <div id="subdivisions"></div>
     </fieldset>
 
     <details class="more">
-      <summary>Mais opções: som, flash, trainer de velocidade, compassos mudos</summary>
+      <summary>{{ i18n "more" }}</summary>
       <div class="options">
         <label class="opt">
-          <span>Som</span>
-          <select id="sound" aria-label="Som do clique">
-            <option value="bipe">Bipe</option>
-            <option value="madeira">Madeira</option>
-            <option value="clave">Clave</option>
-            <option value="tique">Tique</option>
+          <span>{{ i18n "sound" }}</span>
+          <select id="sound" aria-label="{{ i18n "click_sound" }}">
+            <option value="bipe">{{ i18n "sound_beep" }}</option>
+            <option value="madeira">{{ i18n "sound_wood" }}</option>
+            <option value="clave">{{ i18n "sound_clave" }}</option>
+            <option value="tique">{{ i18n "sound_tick" }}</option>
           </select>
         </label>
-        <label class="opt"><input id="flash" type="checkbox"> <span>Flash visual na batida</span></label>
+        <label class="opt"><input id="flash" type="checkbox"> <span>{{ i18n "flash" }}</span></label>
       </div>
       <div class="options">
         <label class="opt">
-          <input id="trainer" type="checkbox"> <span>Trainer: subir</span>
-          <input id="trainer-step" type="number" min="1" max="20" value="4" aria-label="BPM por etapa"> <span>BPM a cada</span>
-          <input id="trainer-every" type="number" min="1" max="32" value="4" aria-label="Compassos por etapa"> <span>compassos até</span>
-          <input id="trainer-target" type="number" min="1" max="240" value="120" aria-label="BPM final"> <span>BPM</span>
+          <input id="trainer" type="checkbox"> <span>{{ i18n "trainer" }}</span>
+          <input id="trainer-step" type="number" min="1" max="20" value="4" aria-label="{{ i18n "trainer_step" }}"> <span>{{ i18n "trainer_every" }}</span>
+          <input id="trainer-every" type="number" min="1" max="32" value="4" aria-label="{{ i18n "trainer_bars" }}"> <span>{{ i18n "trainer_until" }}</span>
+          <input id="trainer-target" type="number" min="1" max="240" value="120" aria-label="{{ i18n "trainer_target" }}"> <span>BPM</span>
         </label>
       </div>
       <div class="options">
         <label class="opt">
-          <input id="gap" type="checkbox"> <span>Tocar</span>
-          <input id="gap-play" type="number" min="1" max="16" value="4" aria-label="Compassos com som"> <span>compassos e silenciar</span>
-          <input id="gap-mute" type="number" min="1" max="16" value="2" aria-label="Compassos mudos">
+          <input id="gap" type="checkbox"> <span>{{ i18n "gap_play" }}</span>
+          <input id="gap-play" type="number" min="1" max="16" value="4" aria-label="{{ i18n "gap_bars_sound" }}"> <span>{{ i18n "gap_mute" }}</span>
+          <input id="gap-mute" type="number" min="1" max="16" value="2" aria-label="{{ i18n "gap_bars_mute" }}">
         </label>
       </div>
     </details>
 
     <div class="presets">
       <div class="controls">
-        <button id="preset-save" type="button">Salvar ajuste</button>
-        <button id="share" type="button">Copiar link</button>
+        <button id="preset-save" type="button">{{ i18n "preset_save" }}</button>
+        <button id="share" type="button">{{ i18n "share" }}</button>
       </div>
-      <ul id="presets" aria-label="Ajustes salvos"></ul>
+      <ul id="presets" aria-label="{{ i18n "presets" }}"></ul>
     </div>
   </section>
+  {{- /* Textos que o app.js produz em tempo de execução (CSP sem inline: bloco JSON não é executado) */ -}}
+  {{- $figs := slice }}{{ range seq 0 13 }}{{ $figs = $figs | append (i18n (printf "fig_%d" .)) }}{{ end }}
+  <script type="application/json" id="i18n">{{ dict "start" (i18n "start") "stop" (i18n "stop") "share" (i18n "share") "shareDone" (i18n "share_done") "sharePrompt" (i18n "share_prompt") "presetName" (i18n "preset_name") "presetDelete" (i18n "preset_delete") "beatsAbbr" (i18n "beats_abbr") "figures" $figs | jsonify | safeJS }}</script>

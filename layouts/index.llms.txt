@@ -1,0 +1,19 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+{{ if eq .Language.Lang "en" }}Free online metronome and tools for musicians, in Portuguese (Brazil) with an English version of the metronome and guides. Runs entirely in the browser: no sign-up, no install, no data leaves the device. Contact: contato@meumetronomo.com.br. Source code: https://github.com/fgbona/meumetronomo.com.br{{ else }}Metrônomo online grátis e ferramentas para músicos, em português do Brasil, com versão em inglês do metrônomo e dos guias. Roda inteiramente no navegador: sem cadastro, sem instalação, nenhum dado sai do dispositivo. Contato: contato@meumetronomo.com.br. Código-fonte: https://github.com/fgbona/meumetronomo.com.br{{ end }}
+
+## {{ i18n "metronome" }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Params.lead }}
+{{ range .Translations }}- [{{ .Title }}]({{ .Permalink }}): {{ .Params.lead }}
+{{ end }}
+## {{ i18n "tools_pt" }}
+{{ range where hugo.Sites.Default.RegularPages "Type" "ferramenta" }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## {{ i18n "articles" }}
+{{ range where site.RegularPages "Type" "artigo" }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}
+## {{ cond (eq .Language.Lang "en") "Other pages" "Outras páginas" }}
+{{ range where site.RegularPages "Type" "not in" (slice "artigo" "ferramenta") }}- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{ end }}

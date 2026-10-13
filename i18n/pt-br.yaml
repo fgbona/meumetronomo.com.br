@@ -1,0 +1,76 @@
+# Strings da interface (pt-BR). As mesmas chaves existem em en.yaml.
+# Textos do metrônomo que o JS usa (app.js) são injetados pelo partial i18n-json.html.
+start: Iniciar
+stop: Parar
+tap: Tap BPM
+bpm_dec: Diminuir BPM
+bpm_inc: Aumentar BPM
+beats: Batidas
+beats_less: Menos batidas
+beats_more: Mais batidas
+beats_per_bar: Batidas por compasso
+accent: Acentuar primeira batida
+timer: Temporizador
+minutes: Minutos
+min: min
+subdivisions: Subdivisões
+more: "Mais opções: som, flash, trainer de velocidade, compassos mudos"
+sound: Som
+click_sound: Som do clique
+sound_beep: Bipe
+sound_wood: Madeira
+sound_clave: Clave
+sound_tick: Tique
+flash: Flash visual na batida
+trainer: "Trainer: subir"
+trainer_step: BPM por etapa
+trainer_every: BPM a cada
+trainer_bars: Compassos por etapa
+trainer_until: compassos até
+trainer_target: BPM final
+gap_play: Tocar
+gap_bars_sound: Compassos com som
+gap_mute: compassos e silenciar
+gap_bars_mute: Compassos mudos
+preset_save: Salvar ajuste
+share: Copiar link
+share_done: Link copiado!
+share_prompt: "Copie o link:"
+preset_name: "Nome da música ou exercício:"
+preset_delete: Apagar
+presets: Ajustes salvos
+beats_abbr: bat.
+tools: Ferramentas
+tools_pt: Ferramentas
+metronome: Metrônomo
+tempo_markings: Andamentos
+bpm_by_style: BPM por estilo
+all_tools: Todas as ferramentas
+theme: Modo claro / escuro
+fullscreen: Tela cheia
+faq: Perguntas frequentes
+other_tools: Outras ferramentas para músicos
+tempo_heading: Andamentos
+tempo_text: "Não sabe qual BPM usar? Veja o <a href=\"/andamentos/\">guia de andamentos musicais</a>, com a tabela de Largo a Presto e um link para abrir o metrônomo em cada velocidade, e a <a href=\"/bpm-por-estilo/\">tabela de BPM por estilo</a>."
+articles: Artigos
+updated: Atualizado em
+back_to_metronome: ← Abrir o metrônomo online
+footer_how_to_practice: Como estudar
+footer_about: Sobre
+footer_privacy: Privacidade
+switch_lang: EN
+switch_lang_title: Switch to English
+fig_0: Semínima
+fig_1: Duas colcheias
+fig_2: Tercina de colcheias
+fig_3: Quatro semicolcheias
+fig_4: Colcheia pontuada e semicolcheia
+fig_5: Semicolcheia e colcheia pontuada
+fig_6: Colcheia, colcheia e duas semicolcheias
+fig_7: Duas semicolcheias e duas colcheias
+fig_8: Colcheia, duas semicolcheias e colcheia
+fig_9: Colcheia pontuada e três semicolcheias
+fig_10: Quatro semicolcheias e pausa
+fig_11: Pausa de semínima
+fig_12: Pausa de colcheia e colcheia
+fig_13: Colcheia e pausa de colcheia
