@@ -1,4 +1,5 @@
 {{- $bpm := .Params.bpm | default 60 -}}
+{{- $pt := hugo.Sites.Default -}}
 <h1>{{ .Title }}</h1>
 <p class="lead">{{ .Params.lead }}</p>
 {{ partial "metronome.html" (dict "bpm" $bpm) }}
@@ -9,17 +10,17 @@
   {{ .Content }}
   {{ partial "faq.html" . }}
 
-  <h2>Outras ferramentas para músicos</h2>
+  <h2>{{ i18n "other_tools" }}</h2>
   <ul class="tools">
-  {{- range where site.RegularPages "Type" "ferramenta" }}
+  {{- range where $pt.RegularPages "Type" "ferramenta" }}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Description }}</li>
   {{- end }}
   </ul>
 
-  <h2>Andamentos</h2>
-  <p>Não sabe qual BPM usar? Veja o <a href="/andamentos/">guia de andamentos musicais</a>, com a tabela de Largo a Presto e um link para abrir o metrônomo em cada velocidade, e a <a href="/bpm-por-estilo/">tabela de BPM por estilo</a>.</p>
+  <h2>{{ i18n "tempo_heading" }}</h2>
+  <p>{{ i18n "tempo_text" | safeHTML }}</p>
 
-  <h2>Artigos</h2>
+  <h2>{{ i18n "articles" }}</h2>
   <ul>
   {{- range where site.RegularPages "Type" "artigo" }}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Description }}</li>

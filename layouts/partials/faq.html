@@ -1,5 +1,5 @@
 {{- with .Params.faq }}
-  <h2>Perguntas frequentes</h2>
+  <h2>{{ i18n "faq" }}</h2>
   {{- range . }}
   <h3>{{ .q }}</h3>
   <p>{{ .a | markdownify }}</p>

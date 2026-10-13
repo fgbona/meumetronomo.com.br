@@ -1,8 +1,16 @@
 {{- $desc := .Description | default site.Params.description -}}
-{{- $title := cond .IsHome (printf "Metrônomo Online Grátis - %s" site.Title) (printf "%s - %s" .Title site.Title) -}}
+{{- $en := eq .Language.Lang "en" -}}
+{{- $title := cond .IsHome (printf (cond $en "Free Online Metronome - %s" "Metrônomo Online Grátis - %s") site.Title) (printf "%s - %s" .Title site.Title) -}}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="alternate" hreflang="x-default" href="{{ (index (where .AllTranslations "Language.Lang" "pt-br") 0).Permalink }}">
+{{- end }}
 <meta name="theme-color" content="#e63946">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,11 +23,18 @@
 <meta property="og:image" content="{{ "og.png" | absURL }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="pt_BR">
+<meta property="og:locale" content="{{ cond $en "en_US" "pt_BR" }}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
 {{- with site.Params.adsense.client }}
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 {{- end }}
 <style>{{ (resources.Get "css/style.css" | minify).Content | safeCSS }}</style>
 {{ partial "head-google.html" . }}
+{{- /* Seleção automática de idioma (CSP sem inline: arquivo próprio, síncrono para redirecionar antes de renderizar) */ -}}
+{{- if .IsTranslated }}
+{{ $lang := resources.Get "js/lang.js" | minify | fingerprint }}
+<script src="{{ $lang.RelPermalink }}"></script>
+{{- end }}

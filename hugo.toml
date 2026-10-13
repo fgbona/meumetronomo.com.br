@@ -1,6 +1,7 @@
 baseURL = "https://meumetronomo.com.br/"
-locale = "pt-BR"
 title = "Meu Metrônomo"
+defaultContentLanguage = "pt-br"
+defaultContentLanguageInSubdir = false
 disableKinds = ["taxonomy", "term", "section", "rss"]
 enableRobotsTXT = true
 enableGitInfo = true              # lastmod real no sitemap a partir do git
@@ -13,12 +14,33 @@ disableHugoGeneratorInject = true
   changefreq = "weekly"
   priority = 0.8
 
+[languages]
+  [languages."pt-br"]
+    locale = "pt-BR"
+    label = "Português"
+    weight = 1
+    [languages."pt-br".params]
+      description = "Metrônomo online simples com batidas sonoras e visuais. Defina o BPM, use o Tap BPM, ajuste o número de batidas, subdivisões e o temporizador."
+  [languages.en]
+    locale = "en"
+    label = "English"
+    weight = 2
+    [languages.en.params]
+      description = "Free online metronome with sound and visual beats. Set the BPM, use tap tempo, choose beats per bar, subdivisions, a practice timer and a speed trainer."
+
+[outputFormats.LLMS]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+
+[outputs]
+  home = ["HTML", "LLMS"]
+
 [params]
   # Google Analytics (GA4) — ex.: "G-XXXXXXXXXX". Vazio = desligado.
   ga = ""
   # Verificação de propriedade (Google Search Console): código do método "tag HTML". Vazio não renderiza.
   google_site_verification = ""
-  description = "Metrônomo online simples com batidas sonoras e visuais. Defina o BPM, use o Tap BPM, ajuste o número de batidas, subdivisões e o temporizador."
 
 [minify]
   minifyOutput = true

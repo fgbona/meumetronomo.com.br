@@ -1,0 +1,75 @@
+# UI strings (English). Same keys as pt-br.yaml.
+start: Start
+stop: Stop
+tap: Tap tempo
+bpm_dec: Decrease BPM
+bpm_inc: Increase BPM
+beats: Beats
+beats_less: Fewer beats
+beats_more: More beats
+beats_per_bar: Beats per bar
+accent: Accent first beat
+timer: Timer
+minutes: Minutes
+min: min
+subdivisions: Subdivisions
+more: "More options: sound, flash, speed trainer, muted bars"
+sound: Sound
+click_sound: Click sound
+sound_beep: Beep
+sound_wood: Wood
+sound_clave: Clave
+sound_tick: Tick
+flash: Visual flash on the beat
+trainer: "Trainer: raise by"
+trainer_step: BPM per step
+trainer_every: BPM every
+trainer_bars: Bars per step
+trainer_until: bars until
+trainer_target: Target BPM
+gap_play: Play
+gap_bars_sound: Bars with sound
+gap_mute: bars, then mute
+gap_bars_mute: Muted bars
+preset_save: Save preset
+share: Copy link
+share_done: Link copied!
+share_prompt: "Copy the link:"
+preset_name: "Song or exercise name:"
+preset_delete: Delete
+presets: Saved presets
+beats_abbr: beats
+tools: Tools
+tools_pt: Tools (in Portuguese)
+metronome: Metronome
+tempo_markings: Tempo markings
+bpm_by_style: BPM by genre (pt)
+all_tools: All tools (pt)
+theme: Light / dark mode
+fullscreen: Full screen
+faq: Frequently asked questions
+other_tools: Other tools for musicians (in Portuguese)
+tempo_heading: Tempo markings
+tempo_text: "Not sure which BPM to use? See the <a href=\"/en/tempo-markings/\">guide to tempo markings</a>, with the table from Largo to Presto and a link that opens the metronome at each speed."
+articles: Articles
+updated: Updated on
+back_to_metronome: ← Open the online metronome
+footer_how_to_practice: How to practice
+footer_about: About
+footer_privacy: Privacy
+switch_lang: PT
+switch_lang_title: Mudar para português
+fig_0: Quarter note
+fig_1: Two eighth notes
+fig_2: Eighth-note triplet
+fig_3: Four sixteenth notes
+fig_4: Dotted eighth and sixteenth
+fig_5: Sixteenth and dotted eighth
+fig_6: Eighth, eighth and two sixteenths
+fig_7: Two sixteenths and two eighths
+fig_8: Eighth, two sixteenths and eighth
+fig_9: Dotted eighth and three sixteenths
+fig_10: Four sixteenths and a rest
+fig_11: Quarter rest
+fig_12: Eighth rest and eighth note
+fig_13: Eighth note and eighth rest
