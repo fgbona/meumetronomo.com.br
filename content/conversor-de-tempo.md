@@ -43,3 +43,13 @@ Frases musicais costumam ter 4, 8 ou 16 compassos. Uma estrofe de 16 compassos a
 - Compassos em uma duração = duração (s) ÷ duração de um compasso
 
 Para o tempo de cada figura em milissegundos, veja a [calculadora de delay](/calculadora-de-delay/). Para marcar o andamento, abra o [metrônomo online](/).
+
+## Exemplos práticos
+
+- **Fechar a música em 3 minutos.** A 110 BPM em 4/4, um compasso dura 2,18 s, então 3 minutos são 82 compassos. Uma estrutura introdução (4) + estrofe (16) + refrão (8) + estrofe (16) + refrão (8) + ponte (8) + refrão (16) + final (4) dá 80 compassos: 2 min 55 s.
+- **Vinheta de 30 segundos.** A 120 BPM são 15 compassos exatos; a 128 BPM, 16. Se o cliente pede 30 segundos cravados e a música tem 16 compassos, o BPM tem que ser 128.
+- **Contagem de entrada na gravação.** Dois compassos de clique a 90 BPM são 5,33 s. Se a faixa precisa começar em um instante exato do vídeo, o início da gravação é 5,33 s antes.
+- **Tempo de ensaio.** Um repertório de 14 músicas com média de 90 compassos a 100 BPM em 4/4 dura 14 × 90 × 2,4 s = cerca de 50 minutos, sem contar pausas e conversas.
+- **Compasso composto.** Uma música em 6/8 a 60 BPM na semínima pontuada tem compassos de 2 segundos; use 2 batidas por compasso no conversor, não 6.
+
+Esses cálculos valem para andamento constante. Se a música tem ritardando ou seções em outro BPM, calcule cada seção separadamente e some. Para conferir o andamento de uma gravação, use a [análise de BPM de arquivo](/bpm-de-musica/).

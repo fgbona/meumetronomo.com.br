@@ -48,3 +48,14 @@ A linha **Semínima** é a batida do metrônomo. As figuras acima dela são múl
 - **Gate e tremolo.** Tremolo em colcheias ou semicolcheias usa a coluna LFO. Gates rítmicos funcionam melhor com valores de semicolcheia pontuada, que criam padrões deslocados.
 
 Não sabe o BPM da música? Use o Tap BPM do [metrônomo online](/) ou leia [O que é BPM](/o-que-e-bpm/). Para converter compassos em minutos, use o [conversor de tempo](/conversor-de-tempo/).
+
+## Exemplos práticos
+
+- **Guitarra com delay pontuado.** Música a 140 BPM: colcheia pontuada = 321 ms. Com feedback em duas ou três repetições, cada nota tocada em colcheias gera o padrão rítmico clássico do rock dos anos 80 sem que a mão toque nada a mais.
+- **Slapback de country e rockabilly.** Delay curto, de 80 a 120 ms, uma repetição só. Não precisa estar no tempo: é um efeito de espaço, não de ritmo. A 100 BPM, a fusa (75 ms) e a semifusa (37,5 ms) servem como referência.
+- **Delay em tercinas para blues e shuffle.** Em vez da colcheia, use a tercina de colcheia: a 80 BPM, 250 ms. As repetições caem na divisão ternária do shuffle.
+- **Sidechain em house.** Música a 124 BPM: semínima = 484 ms. Release do compressor em torno de uma colcheia (242 ms) faz o "bombeamento" recuperar o volume antes do próximo bumbo.
+- **Tremolo em semicolcheias.** A 120 BPM, a coluna LFO da semicolcheia mostra 8 Hz. Em colcheias, 4 Hz; em semínimas, 2 Hz.
+- **Dois delays em paralelo.** Colcheia num lado e colcheia pontuada no outro criam um padrão que se repete a cada três tempos; é a base de muitos ambientes de guitarra e de synth.
+
+Se o pedal ou o plugin não aceita milissegundos, muitos aceitam "tap": bata no botão de tap no andamento do [metrônomo online](/) e confira o valor em ms contra a tabela.

@@ -42,3 +42,16 @@ faq:
 Muita música brasileira vive na hemíola, o 3 contra 2: o baião e o xote acentuam o tresillo por cima do pulso binário, e o samba alterna a divisão em dois com a sensação em três no surdo e no tamborim. Dominar a polirritmia não é só técnica: é entender por que essas levadas balançam.
 
 Para o pulso simples, use o [metrônomo online](/). Para testar sua precisão em cada voz, o [treino de ritmo](/treino-de-ritmo/) mede o desvio de cada toque.
+
+## Exercícios progressivos
+
+1. **Ouvir.** 3:2 a 50 BPM, sem tocar, só acompanhando os pontos. Conte "1-2-3-4-5-6" em voz alta e perceba onde cada voz cai.
+2. **Uma voz na mão, outra no pé.** Mão direita na voz de 3, pé na voz de 2. Depois inverta: a inversão é sempre mais difícil do que parece.
+3. **Silencie a voz B** e toque-a você. Depois silencie a A. O reencontro no "1" do ciclo é o teste: se vocês chegam juntos, o padrão está certo.
+4. **Falar e tocar.** Fale a voz de 3 ("tá-ta-ta") enquanto bate a de 2 com a mão. Para cantores e sopros, é o caminho natural para a polirritmia.
+5. **Melodia sobre a polirritmia.** Toque uma escala em tercinas (voz de 3) enquanto o metrônomo marca a voz de 2. Depois a escala em colcheias sobre a voz de 3.
+6. **Troca em movimento.** Alterne um compasso de 3:2 e um de 4:3 sem parar. Só para quem já faz os dois separadamente de olhos fechados.
+
+## Onde a polirritmia aparece na música brasileira
+
+O **baião** tem o tresillo (3+3+2 semicolcheias) por cima do pulso binário: é 3:2 disfarçado. O **samba** alterna o surdo em 2 com o tamborim e o pandeiro em figuras que sugerem 3. O **maracatu** e o **coco** colocam o 6/8 e o 2/4 lado a lado. Quem estuda 3:2 e 2:3 em 6/8 neste metrônomo passa a reconhecer essas levadas de ouvido, e a tocá-las sem "quadrar". A [tabela de BPM por estilo](/bpm-por-estilo/) traz os andamentos típicos de cada gênero.

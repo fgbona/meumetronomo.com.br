@@ -48,3 +48,15 @@ faq:
 | Semicolcheia e colcheia pontuada | ¼ + ¾ | ri-tám |
 
 As mesmas figuras aparecem nas subdivisões do [metrônomo online](/), onde você pode ouvi-las isoladas em qualquer BPM. Para medir a precisão das suas palmas, use o [treino de ritmo](/treino-de-ritmo/).
+
+## Erros de leitura mais comuns
+
+- **Encurtar a nota antes da pausa.** A pausa começa onde a nota termina, não antes. Sustente a nota até o fim do valor dela e só então silencie.
+- **Tercina desigual.** A primeira nota longa e as outras duas apressadas. Fale "tri-o-la" com as três sílabas do mesmo tamanho antes de tocar.
+- **Pontuada como tercina.** Colcheia pontuada e semicolcheia (3+1) soam parecidas com a tercina com as duas primeiras notas ligadas (2+1). Com a subdivisão em semicolcheias ligada no [metrônomo](/), a diferença fica clara.
+- **Perder o pulso na síncope.** Quando a nota cai fora do tempo, o pé que marca o pulso costuma parar. Mantenha o pé no clique e deixe só as mãos ou a voz fazerem a síncope.
+- **Ler nota por nota.** Leia em grupos de um tempo: "quatro semicolcheias", "colcheia-duas semicolcheias", como palavras, não como letras.
+
+## Como usar em aula
+
+O gerador cria exercícios diferentes a cada clique, o que serve para avaliação: cada aluno lê um exercício novo, sem decorar. Em grupo, uma fileira bate palmas no pulso e a outra lê o ritmo, depois invertem. Para o passo seguinte, o [treino de ritmo](/treino-de-ritmo/) mede a precisão de cada toque, e os [exercícios de subdivisão](/exercicios-de-subdivisao-com-metronomo/) trabalham as mesmas figuras sem partitura.
