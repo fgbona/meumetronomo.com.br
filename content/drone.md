@@ -31,3 +31,13 @@ faq:
 Instrumentos de cordas sem trastes, sopros e a voz afinam cada nota em relação às outras (afinação justa). O piano e o violão com trastes usam o sistema temperado, em que cada semitom é igual. A diferença chega a 14 cents na terça maior: tocada "justa" sobre o drone, a terça fica um pouco mais baixa do que no piano, e soa mais doce. O drone é a melhor ferramenta para sentir essa diferença no ouvido.
 
 Para afinar o instrumento antes de começar, use o [afinador](/afinador/). Para nomes e fórmulas das escalas, veja a [tabela de escalas](/escalas/).
+
+## Erros comuns ao estudar com drone
+
+- **Volume alto demais.** O drone deve ficar um pouco abaixo do seu instrumento. Se ele domina, você para de ouvir o batimento e passa a "adivinhar" a afinação.
+- **Tocar rápido.** Escalas em colcheias não deixam tempo de ouvir cada intervalo. Comece com notas de quatro tempos a [60 BPM](/andamentos/#60-bpm) e só acelere quando cada nota encaixar.
+- **Ficar só na tônica.** Depois de uma semana, mude o drone para a quinta e para a terça da escala. Cada referência expõe intervalos diferentes.
+- **Ignorar o timbre.** Um drone com muitos harmônicos ajuda a ouvir terças e sétimas; um drone puro (senoidal) é melhor para oitavas e quintas. Alterne.
+- **Esquecer o instrumento desafinado.** Afine primeiro com o [afinador](/afinador/); o drone revela a afinação de cada nota em relação à referência, não se o instrumento inteiro está alto ou baixo.
+
+Para combinar drone e pulso, deixe o [metrônomo online](/) aberto em outra aba a 60 BPM e toque uma nota por clique sobre o drone: afinação e tempo no mesmo exercício.

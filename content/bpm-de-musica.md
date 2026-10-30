@@ -40,3 +40,15 @@ faq:
 - **Comparar versões** de uma mesma música e entender por que uma soa mais arrastada ou mais urgente.
 
 Para entender o que o número significa e como contá-lo manualmente, leia [O que é BPM](/o-que-e-bpm/). A [tabela de BPM por estilo](/bpm-por-estilo/) ajuda a checar se o resultado faz sentido para o gênero.
+
+## Exemplos de uso
+
+- **Professor de música.** Analise a gravação que o aluno quer aprender, abra o metrônomo no BPM encontrado e peça que ele toque o trecho mais lento, subindo até o andamento original com o trainer de velocidade.
+- **Banda cover.** Passe o repertório inteiro pela ferramenta e anote o BPM de cada música no setlist. No ensaio, o baterista conta a entrada com o metrônomo e ninguém mais discute "se está rápido".
+- **Produção.** Antes de importar um sample ou uma gravação ao vivo para a DAW, descubra o BPM para configurar o projeto, o quantize e os efeitos sincronizados pela [calculadora de delay](/calculadora-de-delay/).
+- **Dança e aulas de ginástica.** Organize as playlists por faixa de BPM: aquecimento entre 100 e 120, parte principal entre 128 e 140, alongamento abaixo de 90.
+- **Corrida.** Músicas entre 160 e 180 BPM coincidem com a cadência de passos de muitos corredores. Use a ferramenta para montar uma lista no seu ritmo.
+
+## Limites da ferramenta
+
+A análise usa os primeiros dois minutos do arquivo e procura um pulso único. Músicas com mudança de andamento, com swing acentuado ou sem percussão podem dar resultado ambíguo; nesses casos, o Tap BPM do [metrônomo online](/) continua sendo o método mais confiável: bata no pulso que você sente durante 8 a 10 batidas e o metrônomo calcula a média.
