@@ -33,8 +33,7 @@
 {{- end }}
 <style>{{ (resources.Get "css/style.css" | minify).Content | safeCSS }}</style>
 {{ partial "head-google.html" . }}
-{{- /* Seleção automática de idioma (CSP sem inline: arquivo próprio, síncrono para redirecionar antes de renderizar) */ -}}
+{{- /* Seleção automática de idioma: inline (sem request bloqueante), síncrono para redirecionar antes de renderizar */ -}}
 {{- if .IsTranslated }}
-{{ $lang := resources.Get "js/lang.js" | minify | fingerprint }}
-<script src="{{ $lang.RelPermalink }}"></script>
+<script>{{ (resources.Get "js/lang.js" | minify).Content | safeJS }}</script>
 {{- end }}
