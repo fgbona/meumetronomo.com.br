@@ -55,7 +55,7 @@ A relativa menor de cada tom maior começa no sexto grau e usa as mesmas notas: 
 
 ## Baixe as escalas em Guitar Pro
 
-Para estudar no instrumento com tablatura e áudio, baixe os arquivos **.gp5** das escalas: maior e relativa menor em três notas por corda (3NPS), menor natural, menor harmônica e pentatônicas, nos 12 tons. Estão na página [escalas para guitarra em Guitar Pro](/escalas-guitar-pro/), para baixar um a um, só os que você quiser.
+Para estudar no instrumento com tablatura e áudio, baixe os arquivos **.gp5** das escalas: maior e relativa menor em três notas por corda (3NPS), menores natural, harmônica e melódica, pentatônicas e os sete modos gregos, nos 12 tons. Estão na página [escalas para guitarra em Guitar Pro](/escalas-guitar-pro/), para baixar um a um, só os que você quiser.
 
 ## Que escala usar
 
