@@ -29,6 +29,7 @@ Todas as ferramentas rodam no seu navegador, sem cadastro e sem instalar nada. F
 
 - **[Transpositor de acordes](/transpositor-de-acordes/)** — cole a cifra e mude o tom em semitons. Para a voz e para capotraste.
 - **[Escalas e acordes](/escalas/)** — notas, fórmula e acordes de cada grau para maior, menores, modos, pentatônicas, blues e mais, em qualquer tônica.
+- **[Escalas em Guitar Pro](/escalas-guitar-pro/)** — 72 arquivos .gp5 para baixar: maior e relativa menor em 3 notas por corda, menor natural, menor harmônica e pentatônicas nos 12 tons.
 
 ## Guias
 

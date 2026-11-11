@@ -53,6 +53,10 @@ faq:
 
 A relativa menor de cada tom maior começa no sexto grau e usa as mesmas notas: Lá menor para Dó maior, Mi menor para Sol maior, Ré menor para Fá maior.
 
+## Baixe as escalas em Guitar Pro
+
+Para estudar no instrumento com tablatura e áudio, baixe os arquivos **.gp5** das escalas: maior e relativa menor em três notas por corda (3NPS), menor natural, menor harmônica e pentatônicas, nos 12 tons. Estão na página [escalas para guitarra em Guitar Pro](/escalas-guitar-pro/), para baixar um a um ou tudo em um zip.
+
 ## Que escala usar
 
 - **Maior e menor natural** para a maioria das músicas populares.
