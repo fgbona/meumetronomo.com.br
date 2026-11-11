@@ -1,7 +1,7 @@
 ---
 title: "Escalas para guitarra em Guitar Pro (.gp5) para baixar"
 date: 2026-11-10T18:00:00-03:00
-description: "72 arquivos Guitar Pro grátis: escala maior e relativa menor em três notas por corda (3NPS), menor natural, menor harmônica e pentatônicas maior e menor nos 12 tons. Baixe um a um ou tudo em um zip."
+description: "72 arquivos Guitar Pro grátis: escala maior e relativa menor em três notas por corda (3NPS), menor natural, menor harmônica e pentatônicas maior e menor nos 12 tons. Baixe só os que quiser, um a um."
 type: artigo
 sitemap:
   priority: 0.7
@@ -16,9 +16,7 @@ faq:
     a: "Pentatônica menor, depois a maior em 3NPS, depois a menor natural (que já está dentro da maior). A menor harmônica entra quando a música pedir o acorde dominante maior em tom menor. Comece sempre em Lá menor ou Dó maior, que ficam em posições confortáveis do braço, e transponha depois."
 ---
 
-Arquivos **Guitar Pro (.gp5)** com as escalas escritas em tablatura e partitura, prontos para abrir, ouvir em qualquer andamento e tocar junto. São 72 arquivos em quatro grupos, todos nos 12 tons, na ordem do ciclo de quintas (Dó, Sol, Ré, Lá…). Baixe um de cada vez pelas tabelas abaixo ou tudo de uma vez:
-
-**[Baixar as 72 escalas (.zip, 150 KB)](/downloads/escalas/escalas-guitar-pro-todas.zip)**
+Arquivos **Guitar Pro (.gp5)** com as escalas escritas em tablatura e partitura, prontos para abrir, ouvir em qualquer andamento e tocar junto. São 72 arquivos em quatro grupos, todos nos 12 tons, na ordem do ciclo de quintas (Dó, Sol, Ré, Lá…). Escolha nas tabelas abaixo e baixe só os que quiser.
 
 ## Como estudar com os arquivos
 
