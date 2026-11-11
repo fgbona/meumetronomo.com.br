@@ -1,0 +1,18 @@
+{{- /* Lista os .gp5 de static/downloads/escalas/<pasta> com nome legível a partir do arquivo (01a_C_maior.gp5 → Dó maior).
+       Para acrescentar escalas basta colocar o .gp5 na pasta seguindo o padrão NN[a|b]_TOM[m]_tipo.gp5 e refazer o zip. */ -}}
+{{- $pasta := .Get "pasta" -}}
+{{- $notas := dict "C" "Dó" "Cs" "Dó♯" "Db" "Ré♭" "D" "Ré" "Ds" "Ré♯" "Eb" "Mi♭" "E" "Mi" "F" "Fá" "Fs" "Fá♯" "Gb" "Sol♭" "G" "Sol" "Gs" "Sol♯" "Ab" "Lá♭" "A" "Lá" "As" "Lá♯" "Bb" "Si♭" "B" "Si" -}}
+{{- $tipos := dict "maior" "maior" "menor" "menor" "menor_natural" "menor natural" "menor_harmonica" "menor harmônica" "menor_melodica" "menor melódica" "penta_maior" "pentatônica maior" "penta_menor" "pentatônica menor" -}}
+<table class="gp5">
+<thead><tr><th>Escala</th><th>Arquivo</th><th></th></tr></thead>
+<tbody>
+{{- range os.ReadDir (printf "static/downloads/escalas/%s" $pasta) }}
+{{- if strings.HasSuffix .Name ".gp5" }}
+{{- $p := split (strings.TrimSuffix ".gp5" .Name) "_" }}
+{{- $tom := strings.TrimSuffix "m" (index $p 1) }}
+{{- $tipo := string (delimit (after 2 $p) "_") }}
+{{- $nome := printf "%s %s" (index $notas $tom | default $tom) (index $tipos $tipo | default (replace $tipo "_" " ")) }}
+<tr><td>{{ $nome }}</td><td><code>{{ .Name }}</code></td><td><a href="/downloads/escalas/{{ $pasta }}/{{ .Name }}" download>Baixar</a></td></tr>
+{{- end }}{{- end }}
+</tbody></table>
+<p><a href="/downloads/escalas/escalas-{{ $pasta }}.zip" download><strong>Baixar todas desta seção (.zip)</strong></a></p>
